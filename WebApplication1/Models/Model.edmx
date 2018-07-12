@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="projectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bill_detail">
+          <Key>
+            <PropertyRef Name="id_bill" />
+            <PropertyRef Name="id_food" />
+          </Key>
+          <Property Name="id_bill" Type="int" Nullable="false" />
+          <Property Name="id_food" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bills">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id_customer" Type="int" Nullable="false" />
+          <Property Name="date_order" Type="date" Nullable="false" />
+          <Property Name="total" Type="float" Nullable="false" />
+          <Property Name="deposit" Type="float" Nullable="false" />
+          <Property Name="unpaid" Type="float" Nullable="false" />
+          <Property Name="payment_method" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="note" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="gender" Type="nvarchar" MaxLength="10" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="note" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="food_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="image" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="foods">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id_type" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="summary" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="detail" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="promotion_price" Type="float" Nullable="false" />
+          <Property Name="promotion" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="image" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="update_at" Type="date" Nullable="false" />
+          <Property Name="unit" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="today" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="promotion_price" Type="float" Nullable="false" />
+          <Property Name="detail" Type="text" Nullable="false" />
+          <Property Name="image" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="menu_detail">
+          <Key>
+            <PropertyRef Name="id_menu" />
+            <PropertyRef Name="id_food" />
+          </Key>
+          <Property Name="id_menu" Type="int" Nullable="false" />
+          <Property Name="id_food" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="role_resource">
+          <Key>
+            <PropertyRef Name="role" />
+            <PropertyRef Name="resource" />
+          </Key>
+          <Property Name="role" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="resource" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="allow" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="birthdate" Type="date" Nullable="false" />
+          <Property Name="gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="role" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_bill_detail_bills">
+          <End Role="bills" Type="Self.bills" Multiplicity="1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bills">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="id_bill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bill_detail_foods">
+          <End Role="foods" Type="Self.foods" Multiplicity="1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="foods">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="id_food" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bills_customers">
+          <End Role="customers" Type="Self.customers" Multiplicity="1" />
+          <End Role="bills" Type="Self.bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bills">
+              <PropertyRef Name="id_customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_foods_food_type">
+          <End Role="food_type" Type="Self.food_type" Multiplicity="1" />
+          <End Role="foods" Type="Self.foods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="foods">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_menu_detail_foods">
+          <End Role="foods" Type="Self.foods" Multiplicity="1" />
+          <End Role="menu_detail" Type="Self.menu_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="foods">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu_detail">
+              <PropertyRef Name="id_food" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_menu_detail_menu">
+          <End Role="menu" Type="Self.menu" Multiplicity="1" />
+          <End Role="menu_detail" Type="Self.menu_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu_detail">
+              <PropertyRef Name="id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="projectModelStoreContainer">
+          <EntitySet Name="bill_detail" EntityType="Self.bill_detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bills" EntityType="Self.bills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="food_type" EntityType="Self.food_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="foods" EntityType="Self.foods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="menu_detail" EntityType="Self.menu_detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role_resource" EntityType="Self.role_resource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_bill_detail_bills" Association="Self.FK_bill_detail_bills">
+            <End Role="bills" EntitySet="bills" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bill_detail_foods" Association="Self.FK_bill_detail_foods">
+            <End Role="foods" EntitySet="foods" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bills_customers" Association="Self.FK_bills_customers">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="bills" EntitySet="bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_foods_food_type" Association="Self.FK_foods_food_type">
+            <End Role="food_type" EntitySet="food_type" />
+            <End Role="foods" EntitySet="foods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_menu_detail_foods" Association="Self.FK_menu_detail_foods">
+            <End Role="foods" EntitySet="foods" />
+            <End Role="menu_detail" EntitySet="menu_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_menu_detail_menu" Association="Self.FK_menu_detail_menu">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="menu_detail" EntitySet="menu_detail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bill_detail">
+          <Key>
+            <PropertyRef Name="id_bill" />
+            <PropertyRef Name="id_food" />
+          </Key>
+          <Property Name="id_bill" Type="Int32" Nullable="false" />
+          <Property Name="id_food" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <NavigationProperty Name="bill" Relationship="Self.FK_bill_detail_bills" FromRole="bill_detail" ToRole="bills" />
+          <NavigationProperty Name="food" Relationship="Self.FK_bill_detail_foods" FromRole="bill_detail" ToRole="foods" />
+        </EntityType>
+        <EntityType Name="bill">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id_customer" Type="Int32" Nullable="false" />
+          <Property Name="date_order" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="total" Type="Double" Nullable="false" />
+          <Property Name="deposit" Type="Double" Nullable="false" />
+          <Property Name="unpaid" Type="Double" Nullable="false" />
+          <Property Name="payment_method" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="bill_detail" Relationship="Self.FK_bill_detail_bills" FromRole="bills" ToRole="bill_detail" />
+          <NavigationProperty Name="customer" Relationship="Self.FK_bills_customers" FromRole="bills" ToRole="customers" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="bills" Relationship="Self.FK_bills_customers" FromRole="customers" ToRole="bills" />
+        </EntityType>
+        <EntityType Name="food_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="foods" Relationship="Self.FK_foods_food_type" FromRole="food_type" ToRole="foods" />
+        </EntityType>
+        <EntityType Name="food">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id_type" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="summary" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="detail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="promotion_price" Type="Double" Nullable="false" />
+          <Property Name="promotion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="update_at" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="today" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="bill_detail" Relationship="Self.FK_bill_detail_foods" FromRole="foods" ToRole="bill_detail" />
+          <NavigationProperty Name="food_type" Relationship="Self.FK_foods_food_type" FromRole="foods" ToRole="food_type" />
+          <NavigationProperty Name="menu_detail" Relationship="Self.FK_menu_detail_foods" FromRole="foods" ToRole="menu_detail" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="promotion_price" Type="Double" Nullable="false" />
+          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="menu_detail" Relationship="Self.FK_menu_detail_menu" FromRole="menu" ToRole="menu_detail" />
+        </EntityType>
+        <EntityType Name="menu_detail">
+          <Key>
+            <PropertyRef Name="id_menu" />
+            <PropertyRef Name="id_food" />
+          </Key>
+          <Property Name="id_menu" Type="Int32" Nullable="false" />
+          <Property Name="id_food" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="food" Relationship="Self.FK_menu_detail_foods" FromRole="menu_detail" ToRole="foods" />
+          <NavigationProperty Name="menu" Relationship="Self.FK_menu_detail_menu" FromRole="menu_detail" ToRole="menu" />
+        </EntityType>
+        <EntityType Name="role_resource">
+          <Key>
+            <PropertyRef Name="role" />
+            <PropertyRef Name="resource" />
+          </Key>
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="resource" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="allow" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_bill_detail_bills">
+          <End Role="bills" Type="Self.bill" Multiplicity="1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bills">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="id_bill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bill_detail_foods">
+          <End Role="foods" Type="Self.food" Multiplicity="1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="foods">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="id_food" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bills_customers">
+          <End Role="customers" Type="Self.customer" Multiplicity="1" />
+          <End Role="bills" Type="Self.bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bills">
+              <PropertyRef Name="id_customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_foods_food_type">
+          <End Role="food_type" Type="Self.food_type" Multiplicity="1" />
+          <End Role="foods" Type="Self.food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="foods">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_menu_detail_foods">
+          <End Role="foods" Type="Self.food" Multiplicity="1" />
+          <End Role="menu_detail" Type="Self.menu_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="foods">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu_detail">
+              <PropertyRef Name="id_food" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_menu_detail_menu">
+          <End Role="menu" Type="Self.menu" Multiplicity="1" />
+          <End Role="menu_detail" Type="Self.menu_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="menu_detail">
+              <PropertyRef Name="id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="projectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bill_detail" EntityType="Self.bill_detail" />
+          <EntitySet Name="bills" EntityType="Self.bill" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="food_type" EntityType="Self.food_type" />
+          <EntitySet Name="foods" EntityType="Self.food" />
+          <EntitySet Name="menus" EntityType="Self.menu" />
+          <EntitySet Name="menu_detail" EntityType="Self.menu_detail" />
+          <EntitySet Name="role_resource" EntityType="Self.role_resource" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <AssociationSet Name="FK_bill_detail_bills" Association="Self.FK_bill_detail_bills">
+            <End Role="bills" EntitySet="bills" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bill_detail_foods" Association="Self.FK_bill_detail_foods">
+            <End Role="foods" EntitySet="foods" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bills_customers" Association="Self.FK_bills_customers">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="bills" EntitySet="bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_foods_food_type" Association="Self.FK_foods_food_type">
+            <End Role="food_type" EntitySet="food_type" />
+            <End Role="foods" EntitySet="foods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_menu_detail_foods" Association="Self.FK_menu_detail_foods">
+            <End Role="foods" EntitySet="foods" />
+            <End Role="menu_detail" EntitySet="menu_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_menu_detail_menu" Association="Self.FK_menu_detail_menu">
+            <End Role="menu" EntitySet="menus" />
+            <End Role="menu_detail" EntitySet="menu_detail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="projectModelStoreContainer" CdmEntityContainer="projectEntities">
+          <EntitySetMapping Name="bill_detail">
+            <EntityTypeMapping TypeName="projectModel.bill_detail">
+              <MappingFragment StoreEntitySet="bill_detail">
+                <ScalarProperty Name="id_bill" ColumnName="id_bill" />
+                <ScalarProperty Name="id_food" ColumnName="id_food" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bills">
+            <EntityTypeMapping TypeName="projectModel.bill">
+              <MappingFragment StoreEntitySet="bills">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+                <ScalarProperty Name="date_order" ColumnName="date_order" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="deposit" ColumnName="deposit" />
+                <ScalarProperty Name="unpaid" ColumnName="unpaid" />
+                <ScalarProperty Name="payment_method" ColumnName="payment_method" />
+                <ScalarProperty Name="note" ColumnName="note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="projectModel.customer">
+              <MappingFragment StoreEntitySet="customers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="note" ColumnName="note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="food_type">
+            <EntityTypeMapping TypeName="projectModel.food_type">
+              <MappingFragment StoreEntitySet="food_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="foods">
+            <EntityTypeMapping TypeName="projectModel.food">
+              <MappingFragment StoreEntitySet="foods">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="summary" ColumnName="summary" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="promotion_price" ColumnName="promotion_price" />
+                <ScalarProperty Name="promotion" ColumnName="promotion" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="update_at" ColumnName="update_at" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="today" ColumnName="today" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="menus">
+            <EntityTypeMapping TypeName="projectModel.menu">
+              <MappingFragment StoreEntitySet="menu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="promotion_price" ColumnName="promotion_price" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="menu_detail">
+            <EntityTypeMapping TypeName="projectModel.menu_detail">
+              <MappingFragment StoreEntitySet="menu_detail">
+                <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+                <ScalarProperty Name="id_food" ColumnName="id_food" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role_resource">
+            <EntityTypeMapping TypeName="projectModel.role_resource">
+              <MappingFragment StoreEntitySet="role_resource">
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="resource" ColumnName="resource" />
+                <ScalarProperty Name="allow" ColumnName="allow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="projectModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="projectModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

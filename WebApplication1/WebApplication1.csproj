@@ -1,0 +1,1602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1A50621E-B6D5-4708-A529-1C6C28F4EF9F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication1</RootNamespace>
+    <AssemblyName>WebApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\FoodDetailController.cs" />
+    <Compile Include="Controllers\FoodTypeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SearchPageController.cs" />
+    <Compile Include="Controllers\SignupController.cs" />
+    <Compile Include="Controllers\ThucDonController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bill.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bill_detail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\customer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\food.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FoodTypeView.cs" />
+    <Compile Include="Models\food_type.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\menu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MenuView.cs" />
+    <Compile Include="Models\menu_detail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\role_resource.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\css\demo_page.css" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\css\demo_table.css" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\images\back_disabled.png" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\images\back_enabled.png" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\images\back_enabled_hover.png" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\images\forward_disabled.png" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\images\forward_enabled.png" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\images\forward_enabled_hover.png" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\images\sort_asc.png" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\images\sort_asc_disabled.png" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\images\sort_both.png" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\images\sort_desc.png" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\images\sort_desc_disabled.png" />
+    <Content Include="Areas\Admin\public\assets\advanced-datatable\media\js\jquery.dataTables.js" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-colorpicker\css\colorpicker.css" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-colorpicker\img\alpha.png" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-colorpicker\img\hue.png" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-colorpicker\img\saturation.png" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-daterangepicker\date.js" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-daterangepicker\daterangepicker.css" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-daterangepicker\moment.min.js" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-datetimepicker\css\datetimepicker.css" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-fileupload\bootstrap-fileupload.css" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-fileupload\bootstrap-fileupload.js" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-inputmask\bootstrap-inputmask.min.js" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-timepicker\compiled\timepicker.css" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-wysihtml5\bootstrap-wysihtml5.css" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-wysihtml5\bootstrap-wysihtml5.js" />
+    <Content Include="Areas\Admin\public\assets\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
+    <Content Include="Areas\Admin\public\assets\chart-master\Chart.js" />
+    <Content Include="Areas\Admin\public\assets\ckeditor\ckeditor.js" />
+    <Content Include="Areas\Admin\public\assets\data-tables\DT_bootstrap.css" />
+    <Content Include="Areas\Admin\public\assets\data-tables\DT_bootstrap.js" />
+    <Content Include="Areas\Admin\public\assets\data-tables\images\sort_asc.png" />
+    <Content Include="Areas\Admin\public\assets\data-tables\images\sort_asc_disabled.html" />
+    <Content Include="Areas\Admin\public\assets\data-tables\images\sort_both.png" />
+    <Content Include="Areas\Admin\public\assets\data-tables\images\sort_desc.png" />
+    <Content Include="Areas\Admin\public\assets\data-tables\images\sort_desc_disabled.html" />
+    <Content Include="Areas\Admin\public\assets\data-tables\jquery.dataTables.js" />
+    <Content Include="Areas\Admin\public\assets\dropzone\css\dropzone.css" />
+    <Content Include="Areas\Admin\public\assets\dropzone\dropzone.js" />
+    <Content Include="Areas\Admin\public\assets\dropzone\images\spritemap%402x.png" />
+    <Content Include="Areas\Admin\public\assets\dropzone\images\spritemap.png" />
+    <Content Include="Areas\Admin\public\assets\fancybox\source\blank.gif" />
+    <Content Include="Areas\Admin\public\assets\fancybox\source\fancybox_loading.gif" />
+    <Content Include="Areas\Admin\public\assets\fancybox\source\fancybox_overlay.png" />
+    <Content Include="Areas\Admin\public\assets\fancybox\source\fancybox_sprite.png" />
+    <Content Include="Areas\Admin\public\assets\fancybox\source\jquery.fancybox.css" />
+    <Content Include="Areas\Admin\public\assets\fancybox\source\jquery.fancybox.js" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\css\jquery.fileupload-noscript.css" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\css\jquery.fileupload-ui.css" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\css\jquery.fileupload.css" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\img\loading.gif" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\img\progressbar.gif" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\js\jquery.fileupload-audio.js" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\js\jquery.fileupload-image.js" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\js\jquery.fileupload-process.js" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\js\jquery.fileupload-ui.js" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\js\jquery.fileupload-validate.js" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\js\jquery.fileupload-video.js" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\js\jquery.fileupload.js" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\js\jquery.iframe-transport.js" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\js\main.js" />
+    <Content Include="Areas\Admin\public\assets\file-uploader\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Areas\Admin\public\assets\flot\jquery.flot.crosshair.js" />
+    <Content Include="Areas\Admin\public\assets\flot\jquery.flot.js" />
+    <Content Include="Areas\Admin\public\assets\flot\jquery.flot.pie.js" />
+    <Content Include="Areas\Admin\public\assets\flot\jquery.flot.resize.js" />
+    <Content Include="Areas\Admin\public\assets\flot\jquery.flot.stack.js" />
+    <Content Include="Areas\Admin\public\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\Admin\public\assets\font-awesome\fonts\fontawesome-webfontba72.html" />
+    <Content Include="Areas\Admin\public\assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
+    <Content Include="Areas\Admin\public\assets\fuelux\css\tree-style.css" />
+    <Content Include="Areas\Admin\public\assets\fuelux\img\tree-icons.png" />
+    <Content Include="Areas\Admin\public\assets\fuelux\js\spinner.min.js" />
+    <Content Include="Areas\Admin\public\assets\fuelux\js\tree.min.js" />
+    <Content Include="Areas\Admin\public\assets\fullcalendar\fullcalendar\bootstrap-fullcalendar.css" />
+    <Content Include="Areas\Admin\public\assets\fullcalendar\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Areas\Admin\public\assets\gritter\css\jquery.gritter.css" />
+    <Content Include="Areas\Admin\public\assets\gritter\images\gritter-light.png" />
+    <Content Include="Areas\Admin\public\assets\gritter\images\gritter.png" />
+    <Content Include="Areas\Admin\public\assets\gritter\images\ie-spacer.gif" />
+    <Content Include="Areas\Admin\public\assets\gritter\js\jquery.gritter.js" />
+    <Content Include="Areas\Admin\public\assets\jcrop\css\Jcrop.gif" />
+    <Content Include="Areas\Admin\public\assets\jcrop\css\jquery.Jcrop.min.css" />
+    <Content Include="Areas\Admin\public\assets\jcrop\js\jquery.color.js" />
+    <Content Include="Areas\Admin\public\assets\jcrop\js\jquery.Jcrop.min.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-easy-pie-chart\jquery.easy-pie-chart.css" />
+    <Content Include="Areas\Admin\public\assets\jquery-easy-pie-chart\jquery.easy-pie-chart.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-file-upload\css\jquery.fileupload-ui.css" />
+    <Content Include="Areas\Admin\public\assets\jquery-file-upload\img\loading.gif" />
+    <Content Include="Areas\Admin\public\assets\jquery-file-upload\img\progressbar.gif" />
+    <Content Include="Areas\Admin\public\assets\jquery-file-upload\js\jquery.fileupload-fp.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-file-upload\js\jquery.fileupload-ui.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-file-upload\js\jquery.fileupload.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-file-upload\js\jquery.iframe-transport.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-file-upload\js\vendor\canvas-to-blob.min.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-file-upload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-file-upload\js\vendor\load-image.min.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-file-upload\js\vendor\tmpl.min.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-knob\js\jquery.knob.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-multi-select\css\multi-select.css" />
+    <Content Include="Areas\Admin\public\assets\jquery-multi-select\img\switch.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-multi-select\js\jquery.multi-select.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-multi-select\js\jquery.quicksearch.js" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\animated-overlay.gif" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\jquery-ui-1.10.1.custom.min.css" />
+    <Content Include="Areas\Admin\public\assets\jquery-ui\jquery-ui-1.10.1.custom.min.js" />
+    <Content Include="Areas\Admin\public\assets\morris.js-0.4.3\morris.css" />
+    <Content Include="Areas\Admin\public\assets\morris.js-0.4.3\morris.min.js" />
+    <Content Include="Areas\Admin\public\assets\morris.js-0.4.3\raphael-min.js" />
+    <Content Include="Areas\Admin\public\assets\nestable\jquery.nestable.css" />
+    <Content Include="Areas\Admin\public\assets\nestable\jquery.nestable.js" />
+    <Content Include="Areas\Admin\public\assets\summernote\dist\summernote.css" />
+    <Content Include="Areas\Admin\public\assets\summernote\dist\summernote.min.js" />
+    <Content Include="Areas\Admin\public\assets\toastr-master\toastr.css" />
+    <Content Include="Areas\Admin\public\assets\toastr-master\toastr.js" />
+    <Content Include="Areas\Admin\public\assets\xchart\d3.v3.min.js" />
+    <Content Include="Areas\Admin\public\assets\xchart\xcharts.css" />
+    <Content Include="Areas\Admin\public\assets\xchart\xcharts.min.js" />
+    <Content Include="Areas\Admin\public\css\bootstrap-reset.css" />
+    <Content Include="Areas\Admin\public\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\public\css\gallery.css" />
+    <Content Include="Areas\Admin\public\css\huong-style.css" />
+    <Content Include="Areas\Admin\public\css\image-crop.css" />
+    <Content Include="Areas\Admin\public\css\invoice-print.css" />
+    <Content Include="Areas\Admin\public\css\jquery.steps.css" />
+    <Content Include="Areas\Admin\public\css\login-form.css" />
+    <Content Include="Areas\Admin\public\css\owl.carousel.css" />
+    <Content Include="Areas\Admin\public\css\slidebars.css" />
+    <Content Include="Areas\Admin\public\css\soon.css" />
+    <Content Include="Areas\Admin\public\css\style-responsive.css" />
+    <Content Include="Areas\Admin\public\css\style.css" />
+    <Content Include="Areas\Admin\public\css\table-responsive.css" />
+    <Content Include="Areas\Admin\public\css\tasks.css" />
+    <Content Include="Areas\Admin\public\css\yamm.css" />
+    <Content Include="Areas\Admin\public\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="Areas\Admin\public\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="Areas\Admin\public\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\public\img\404_icon.png" />
+    <Content Include="Areas\Admin\public\img\500_icon.png" />
+    <Content Include="Areas\Admin\public\img\arrow-up.png" />
+    <Content Include="Areas\Admin\public\img\avatar-mini.jpg" />
+    <Content Include="Areas\Admin\public\img\avatar-mini2.jpg" />
+    <Content Include="Areas\Admin\public\img\avatar-mini3.jpg" />
+    <Content Include="Areas\Admin\public\img\avatar-mini4.jpg" />
+    <Content Include="Areas\Admin\public\img\avatar1.jpg" />
+    <Content Include="Areas\Admin\public\img\avatar1_small.jpg" />
+    <Content Include="Areas\Admin\public\img\blue-bg.jpg" />
+    <Content Include="Areas\Admin\public\img\chart-texture.jpg" />
+    <Content Include="Areas\Admin\public\img\chat-attach.jpg" />
+    <Content Include="Areas\Admin\public\img\chat-avatar.jpg" />
+    <Content Include="Areas\Admin\public\img\chat-avatar2.jpg" />
+    <Content Include="Areas\Admin\public\img\chat-search.png" />
+    <Content Include="Areas\Admin\public\img\checkbox\check-off.png" />
+    <Content Include="Areas\Admin\public\img\checkbox\check-on.png" />
+    <Content Include="Areas\Admin\public\img\checkbox\radio-off.png" />
+    <Content Include="Areas\Admin\public\img\checkbox\radio-on.png" />
+    <Content Include="Areas\Admin\public\img\customSelect-arrow.gif" />
+    <Content Include="Areas\Admin\public\img\dark-bg.jpg" />
+    <Content Include="Areas\Admin\public\img\email-img\banner.jpg" />
+    <Content Include="Areas\Admin\public\img\email-img\icon-cal.png" />
+    <Content Include="Areas\Admin\public\img\email-img\icon-tel.png" />
+    <Content Include="Areas\Admin\public\img\email-img\image1.png" />
+    <Content Include="Areas\Admin\public\img\email-img\image2.png" />
+    <Content Include="Areas\Admin\public\img\email-img\image3.png" />
+    <Content Include="Areas\Admin\public\img\email-img\image4.png" />
+    <Content Include="Areas\Admin\public\img\email-img\main-img.png" />
+    <Content Include="Areas\Admin\public\img\email-img\social-facebook.png" />
+    <Content Include="Areas\Admin\public\img\email-img\social-google.png" />
+    <Content Include="Areas\Admin\public\img\email-img\social-linkedin.png" />
+    <Content Include="Areas\Admin\public\img\email-img\social-twitter.png" />
+    <Content Include="Areas\Admin\public\img\email-img\social-youtube.png" />
+    <Content Include="Areas\Admin\public\img\email-img\vector-lab.jpg" />
+    <Content Include="Areas\Admin\public\img\favicon-2.html" />
+    <Content Include="Areas\Admin\public\img\favicon.html" />
+    <Content Include="Areas\Admin\public\img\fb-img.jpg" />
+    <Content Include="Areas\Admin\public\img\file-search\ai.png" />
+    <Content Include="Areas\Admin\public\img\file-search\doc.png" />
+    <Content Include="Areas\Admin\public\img\file-search\email.png" />
+    <Content Include="Areas\Admin\public\img\file-search\eps.png" />
+    <Content Include="Areas\Admin\public\img\file-search\jpg.png" />
+    <Content Include="Areas\Admin\public\img\file-search\pdf.png" />
+    <Content Include="Areas\Admin\public\img\file-search\ppt.png" />
+    <Content Include="Areas\Admin\public\img\file-search\psd.png" />
+    <Content Include="Areas\Admin\public\img\file-search\rss.png" />
+    <Content Include="Areas\Admin\public\img\file-search\xls.png" />
+    <Content Include="Areas\Admin\public\img\file-search\zip.png" />
+    <Content Include="Areas\Admin\public\img\flags\de.png" />
+    <Content Include="Areas\Admin\public\img\flags\es.png" />
+    <Content Include="Areas\Admin\public\img\flags\fr.png" />
+    <Content Include="Areas\Admin\public\img\flags\ru.png" />
+    <Content Include="Areas\Admin\public\img\flags\us.png" />
+    <Content Include="Areas\Admin\public\img\follower-avatar.jpg" />
+    <Content Include="Areas\Admin\public\img\gallery\1.jpg" />
+    <Content Include="Areas\Admin\public\img\gallery\2.jpg" />
+    <Content Include="Areas\Admin\public\img\gallery\3.jpg" />
+    <Content Include="Areas\Admin\public\img\gallery\4.jpg" />
+    <Content Include="Areas\Admin\public\img\gallery\5.jpg" />
+    <Content Include="Areas\Admin\public\img\gallery\6.jpg" />
+    <Content Include="Areas\Admin\public\img\green-bg.jpg" />
+    <Content Include="Areas\Admin\public\img\input-spinner.gif" />
+    <Content Include="Areas\Admin\public\img\left-arrow.png" />
+    <Content Include="Areas\Admin\public\img\lock-bg.jpg" />
+    <Content Include="Areas\Admin\public\img\mail-avatar.jpg" />
+    <Content Include="Areas\Admin\public\img\mask.png" />
+    <Content Include="Areas\Admin\public\img\mega-menu\corner_image.jpg" />
+    <Content Include="Areas\Admin\public\img\mega-menu\mega-menu-images1.jpg" />
+    <Content Include="Areas\Admin\public\img\mega-menu\mega-menu-images2.jpg" />
+    <Content Include="Areas\Admin\public\img\mega-menu\mega-menu-images3.jpg" />
+    <Content Include="Areas\Admin\public\img\mega-menu\mega-menu-images4.jpg" />
+    <Content Include="Areas\Admin\public\img\mega-menu\mega-menu-images5.jpg" />
+    <Content Include="Areas\Admin\public\img\mega-menu\mega-menu-images6.jpg" />
+    <Content Include="Areas\Admin\public\img\mega_icon1.png" />
+    <Content Include="Areas\Admin\public\img\mega_icon2.png" />
+    <Content Include="Areas\Admin\public\img\mega_icon3.png" />
+    <Content Include="Areas\Admin\public\img\mega_icon4.png" />
+    <Content Include="Areas\Admin\public\img\nav-expand.png" />
+    <Content Include="Areas\Admin\public\img\photos\user1.png" />
+    <Content Include="Areas\Admin\public\img\photos\user2.png" />
+    <Content Include="Areas\Admin\public\img\photos\user3.png" />
+    <Content Include="Areas\Admin\public\img\photos\user4.png" />
+    <Content Include="Areas\Admin\public\img\photos\user5.png" />
+    <Content Include="Areas\Admin\public\img\pro-ac-1.png" />
+    <Content Include="Areas\Admin\public\img\pro-ac-2.png" />
+    <Content Include="Areas\Admin\public\img\product-list\pro-1.jpg" />
+    <Content Include="Areas\Admin\public\img\product-list\pro-thumb-1.jpg" />
+    <Content Include="Areas\Admin\public\img\product-list\pro-thumb-2.jpg" />
+    <Content Include="Areas\Admin\public\img\product-list\pro-thumb-3.jpg" />
+    <Content Include="Areas\Admin\public\img\product-list\pro-thumb-big.jpg" />
+    <Content Include="Areas\Admin\public\img\product-list\pro1.jpg" />
+    <Content Include="Areas\Admin\public\img\product-list\pro2.jpg" />
+    <Content Include="Areas\Admin\public\img\product-list\pro3.jpg" />
+    <Content Include="Areas\Admin\public\img\product1.jpg" />
+    <Content Include="Areas\Admin\public\img\product2.png" />
+    <Content Include="Areas\Admin\public\img\product3.png" />
+    <Content Include="Areas\Admin\public\img\profile-avatar.jpg" />
+    <Content Include="Areas\Admin\public\img\profile\111.png-1487857733.png" />
+    <Content Include="Areas\Admin\public\img\profile\1487857610.jpg" />
+    <Content Include="Areas\Admin\public\img\profile\16298664_975120449256657_3230562061179710807_n.jpg-1487858026.jpg" />
+    <Content Include="Areas\Admin\public\img\profile\16298664_975120449256657_3230562061179710807_n.jpg-1488003453.jpg" />
+    <Content Include="Areas\Admin\public\img\profile\16406501_988533007958068_579474584717201377_n.jpg-1488003438.jpg" />
+    <Content Include="Areas\Admin\public\img\profile\17425162_1030027590475276_5200416337865382988_n-1490328749.jpg" />
+    <Content Include="Areas\Admin\public\img\profile\17425162_1030027590475276_5200416337865382988_n-1490329052.jpg" />
+    <Content Include="Areas\Admin\public\img\purple-bg.jpg" />
+    <Content Include="Areas\Admin\public\img\right-arrow.png" />
+    <Content Include="Areas\Admin\public\img\ring.jpg" />
+    <Content Include="Areas\Admin\public\img\search-icon-white.png" />
+    <Content Include="Areas\Admin\public\img\search-icon.png" />
+    <Content Include="Areas\Admin\public\img\slider\1.jpg" />
+    <Content Include="Areas\Admin\public\img\sm-img-1.jpg" />
+    <Content Include="Areas\Admin\public\img\sm-img-2.jpg" />
+    <Content Include="Areas\Admin\public\img\sm-img-3.jpg" />
+    <Content Include="Areas\Admin\public\img\vector-lab.jpg" />
+    <Content Include="Areas\Admin\public\index.html" />
+    <Content Include="Areas\Admin\public\js\advanced-form-components.js" />
+    <Content Include="Areas\Admin\public\js\all-chartjs.js" />
+    <Content Include="Areas\Admin\public\js\bootstrap-switch.js" />
+    <Content Include="Areas\Admin\public\js\bootstrap-validator.min.js" />
+    <Content Include="Areas\Admin\public\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\public\js\common-scripts.js" />
+    <Content Include="Areas\Admin\public\js\count.js" />
+    <Content Include="Areas\Admin\public\js\draggable-portlet.js" />
+    <Content Include="Areas\Admin\public\js\dynamic_table_init.js" />
+    <Content Include="Areas\Admin\public\js\easy-pie-chart.js" />
+    <Content Include="Areas\Admin\public\js\editable-table.js" />
+    <Content Include="Areas\Admin\public\js\external-dragging-calendar.js" />
+    <Content Include="Areas\Admin\public\js\flot-chart.js" />
+    <Content Include="Areas\Admin\public\js\form-component.js" />
+    <Content Include="Areas\Admin\public\js\form-image-crop.js" />
+    <Content Include="Areas\Admin\public\js\form-validation-script.js" />
+    <Content Include="Areas\Admin\public\js\ga.js" />
+    <Content Include="Areas\Admin\public\js\gmaps-scripts.js" />
+    <Content Include="Areas\Admin\public\js\gmaps.js" />
+    <Content Include="Areas\Admin\public\js\gritter.js" />
+    <Content Include="Areas\Admin\public\js\hover-dropdown.js" />
+    <Content Include="Areas\Admin\public\js\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Areas\Admin\public\js\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Areas\Admin\public\js\jquery.customSelect.min.js" />
+    <Content Include="Areas\Admin\public\js\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="Areas\Admin\public\js\jquery.js" />
+    <Content Include="Areas\Admin\public\js\jquery.nicescroll.js" />
+    <Content Include="Areas\Admin\public\js\jquery.pulsate.min.js" />
+    <Content Include="Areas\Admin\public\js\jquery.scrollTo.min.js" />
+    <Content Include="Areas\Admin\public\js\jquery.sparkline.js" />
+    <Content Include="Areas\Admin\public\js\jquery.steps.min.js" />
+    <Content Include="Areas\Admin\public\js\jquery.stepy.js" />
+    <Content Include="Areas\Admin\public\js\jquery.tagsinput.js" />
+    <Content Include="Areas\Admin\public\js\jquery.ui.touch-punch.min.js" />
+    <Content Include="Areas\Admin\public\js\jquery.validate.min.js" />
+    <Content Include="Areas\Admin\public\js\modernizr.custom.js" />
+    <Content Include="Areas\Admin\public\js\morris-script.js" />
+    <Content Include="Areas\Admin\public\js\nestable.js" />
+    <Content Include="Areas\Admin\public\js\owl.carousel.js" />
+    <Content Include="Areas\Admin\public\js\pulstate.js" />
+    <Content Include="Areas\Admin\public\js\respond.min.js" />
+    <Content Include="Areas\Admin\public\js\slidebars.min.js" />
+    <Content Include="Areas\Admin\public\js\sliders.js" />
+    <Content Include="Areas\Admin\public\js\soon\custom.js" />
+    <Content Include="Areas\Admin\public\js\soon\plugins.js" />
+    <Content Include="Areas\Admin\public\js\sparkline-chart.js" />
+    <Content Include="Areas\Admin\public\js\tasks.js" />
+    <Content Include="Areas\Admin\public\js\toucheffects.js" />
+    <Content Include="Areas\Admin\public\js\tree.js" />
+    <Content Include="Areas\Admin\public\login.html" />
+    <Content Include="assets\css\color\colordefault.css" />
+    <Content Include="assets\css\elements.css" />
+    <Content Include="assets\css\extra.css" />
+    <Content Include="assets\css\layout.css" />
+    <Content Include="assets\css\live-settings.css" />
+    <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\css\widget.css" />
+    <Content Include="assets\db_nhahang.sql" />
+    <Content Include="assets\fonts\font-icon\fonts\icomoon78f5.svg" />
+    <Content Include="assets\fonts\font-icon\style.css" />
+    <Content Include="assets\images\404\404_bg.jpg" />
+    <Content Include="assets\images\404\image-main.png" />
+    <Content Include="assets\images\background\ab_team_01.png" />
+    <Content Include="assets\images\background\bg1.jpg" />
+    <Content Include="assets\images\background\bg1_0.jpg" />
+    <Content Include="assets\images\background\bg2.jpg" />
+    <Content Include="assets\images\background\bg3.jpg" />
+    <Content Include="assets\images\background\bg4.jpg" />
+    <Content Include="assets\images\background\bg5.png" />
+    <Content Include="assets\images\background\bg6.jpg" />
+    <Content Include="assets\images\background\bg7.jpg" />
+    <Content Include="assets\images\background\bg8.jpg" />
+    <Content Include="assets\images\background\black-bg.jpg" />
+    <Content Include="assets\images\background\chef01.png" />
+    <Content Include="assets\images\background\chef02.png" />
+    <Content Include="assets\images\background\food1.png" />
+    <Content Include="assets\images\background\footer-bg.jpg" />
+    <Content Include="assets\images\background\ft-res-bg.jpg" />
+    <Content Include="assets\images\background\home2-img-deco.png" />
+    <Content Include="assets\images\background\layout-boxed.html" />
+    <Content Include="assets\images\background\lemon.png" />
+    <Content Include="assets\images\background\pagetitle-about.jpg" />
+    <Content Include="assets\images\background\pagetitle-bg.jpg" />
+    <Content Include="assets\images\background\pagetitle-blog.jpg" />
+    <Content Include="assets\images\background\pagetitle-menu.jpg" />
+    <Content Include="assets\images\background\pagetitle-product.jpg" />
+    <Content Include="assets\images\background\pagetitle-reservation.jpg" />
+    <Content Include="assets\images\background\pizza1.png" />
+    <Content Include="assets\images\background\reservation-bg-01.jpg" />
+    <Content Include="assets\images\background\soup1.png" />
+    <Content Include="assets\images\background\soup2.png" />
+    <Content Include="assets\images\background\vegetable_01.png" />
+    <Content Include="assets\images\background\vegetable_02.png" />
+    <Content Include="assets\images\background\vegetable_03.png" />
+    <Content Include="assets\images\background\video-bg.jpg" />
+    <Content Include="assets\images\banner-img-1.jpg" />
+    <Content Include="assets\images\banner-img-2.jpg" />
+    <Content Include="assets\images\blog\blog-05.jpg" />
+    <Content Include="assets\images\blog\blog-author.jpg" />
+    <Content Include="assets\images\blog\blog-comment-avatar01.jpg" />
+    <Content Include="assets\images\blog\blog-comment-avatar02.jpg" />
+    <Content Include="assets\images\blog\blog-comment-avatar03.jpg" />
+    <Content Include="assets\images\blog\blog-grid-1-1.jpg" />
+    <Content Include="assets\images\blog\blog-grid-1-2.jpg" />
+    <Content Include="assets\images\blog\blog-grid-1.jpg" />
+    <Content Include="assets\images\blog\blog-grid-3.jpg" />
+    <Content Include="assets\images\blog\blog-grid-4.jpg" />
+    <Content Include="assets\images\blog\blog-single-01.jpg" />
+    <Content Include="assets\images\blog\blog-single-02.jpg" />
+    <Content Include="assets\images\blog\blog-single-03.jpg" />
+    <Content Include="assets\images\blog\blog-slider-1.jpg" />
+    <Content Include="assets\images\blog\blog-slider-2.jpg" />
+    <Content Include="assets\images\blog\blog-slider-3.jpg" />
+    <Content Include="assets\images\blog\blog-slider-4.jpg" />
+    <Content Include="assets\images\blog\blog-slider-5.jpg" />
+    <Content Include="assets\images\blog\blog-slider-6.jpg" />
+    <Content Include="assets\images\blog\blog-slider-7.jpg" />
+    <Content Include="assets\images\counter-1.png" />
+    <Content Include="assets\images\counter-2.png" />
+    <Content Include="assets\images\counter-3.png" />
+    <Content Include="assets\images\counter-4.png" />
+    <Content Include="assets\images\event\event-01.jpg" />
+    <Content Include="assets\images\event\event-02.jpg" />
+    <Content Include="assets\images\feature-box-bg-2.jpg" />
+    <Content Include="assets\images\feature-box-bg-3.jpg" />
+    <Content Include="assets\images\feature-box-bg.jpg" />
+    <Content Include="assets\images\featured-box-bg-1.jpg" />
+    <Content Include="assets\images\gallery\gallery-1.jpg" />
+    <Content Include="assets\images\gallery\gallery-2.jpg" />
+    <Content Include="assets\images\gallery\gallery-3.jpg" />
+    <Content Include="assets\images\gallery\gallery-4.jpg" />
+    <Content Include="assets\images\gallery\gallery-5.jpg" />
+    <Content Include="assets\images\gallery\gallery-6.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\1.png" />
+    <Content Include="assets\images\hinh_loai_mon_an\banh_man.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\bao_ngu.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\bun_mi_mien_pho.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\caloc-bongly.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\chao_sup_canh.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\com.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\mon_cuon.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\nom.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\nuoc_giai_khat.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\page2-img5.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\salat.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\xao.jpg" />
+    <Content Include="assets\images\hinh_loai_mon_an\xoi_ga10.jpg" />
+    <Content Include="assets\images\hinh_mon_an\Banh-Canh-Thit.jpg" />
+    <Content Include="assets\images\hinh_mon_an\banh_chung.jpg" />
+    <Content Include="assets\images\hinh_mon_an\bao_ngu_om_cai_xanh.jpg" />
+    <Content Include="assets\images\hinh_mon_an\bao_ngu_sot_dau_hao.jpg" />
+    <Content Include="assets\images\hinh_mon_an\bao_ngu_sot_nam.jpg" />
+    <Content Include="assets\images\hinh_mon_an\bong_cai_xanh.png" />
+    <Content Include="assets\images\hinh_mon_an\bo_luc_lac_khoai_tay.jpg" />
+    <Content Include="assets\images\hinh_mon_an\bo_sot_tieu_den.jpg" />
+    <Content Include="assets\images\hinh_mon_an\bo_uc_bit_tet.jpg" />
+    <Content Include="assets\images\hinh_mon_an\cai_lan_xao_toi.jpg" />
+    <Content Include="assets\images\hinh_mon_an\canh ngao.jpg" />
+    <Content Include="assets\images\hinh_mon_an\canh_bong_moc_thap_cam.jpg" />
+    <Content Include="assets\images\hinh_mon_an\canh_ga_nam_tuoi.jpg" />
+    <Content Include="assets\images\hinh_mon_an\canh_moc_tom_cua.jpg" />
+    <Content Include="assets\images\hinh_mon_an\ca_dieu_hong_chien_xu.jpg" />
+    <Content Include="assets\images\hinh_mon_an\ca_tam_nuong.jpg" />
+    <Content Include="assets\images\hinh_mon_an\com_hanh_phuc.jpg" />
+    <Content Include="assets\images\hinh_mon_an\com_rang_hai_san.jpg" />
+    <Content Include="assets\images\hinh_mon_an\com_tam.jpg" />
+    <Content Include="assets\images\hinh_mon_an\com_tam_ga.jpg" />
+    <Content Include="assets\images\hinh_mon_an\cua_bay_chien_bo.jpg" />
+    <Content Include="assets\images\hinh_mon_an\dua_hau.jpg" />
+    <Content Include="assets\images\hinh_mon_an\dua_vang.jpg" />
+    <Content Include="assets\images\hinh_mon_an\ga_hap_la_canh.jpg" />
+    <Content Include="assets\images\hinh_mon_an\ga_nuong_pd.jpg" />
+    <Content Include="assets\images\hinh_mon_an\ga_nuong_phu_dong.JPG" />
+    <Content Include="assets\images\hinh_mon_an\ga_sot_cam.jpg" />
+    <Content Include="assets\images\hinh_mon_an\goi muop dang ruoc.jpg" />
+    <Content Include="assets\images\hinh_mon_an\goi-kho-qua-muop-dang.jpg" />
+    <Content Include="assets\images\hinh_mon_an\hoa_qua_thap_cam.jpg" />
+    <Content Include="assets\images\hinh_mon_an\ImageHandler.ashx.jpg" />
+    <Content Include="assets\images\hinh_mon_an\kem-caramen.jpg" />
+    <Content Include="assets\images\hinh_mon_an\khen_lanh.jpg" />
+    <Content Include="assets\images\hinh_mon_an\muc_xao_tham_cap.jpg" />
+    <Content Include="assets\images\hinh_mon_an\muop_xao_nam_gion_ngot.jpg" />
+    <Content Include="assets\images\hinh_mon_an\nam bao ngu xao toi.jpg" />
+    <Content Include="assets\images\hinh_mon_an\nem-oc-phu-dong.jpg" />
+    <Content Include="assets\images\hinh_mon_an\ngochien.jpg" />
+    <Content Include="assets\images\hinh_mon_an\nom_bo_rau_muong.jpg" />
+    <Content Include="assets\images\hinh_mon_an\nom_ga_hoa_chuoi.jpg" />
+    <Content Include="assets\images\hinh_mon_an\nom_ga_rau_chuoi.jpg" />
+    <Content Include="assets\images\hinh_mon_an\nom_ga_xe_phay.jpg" />
+    <Content Include="assets\images\hinh_mon_an\nuoc_giai_khat_cac_loai.jpg" />
+    <Content Include="assets\images\hinh_mon_an\oc-buou-kho-gung.jpg" />
+    <Content Include="assets\images\hinh_mon_an\rau_cai_chip_vao_thit_hop.jpg" />
+    <Content Include="assets\images\hinh_mon_an\salad_ca_ngu.jpg" />
+    <Content Include="assets\images\hinh_mon_an\salad_tom_thai_thom.jpg" />
+    <Content Include="assets\images\hinh_mon_an\salat.jpg" />
+    <Content Include="assets\images\hinh_mon_an\salat_ca_chua_dua_chuot.jpg" />
+    <Content Include="assets\images\hinh_mon_an\sup_hai_san.jpg" />
+    <Content Include="assets\images\hinh_mon_an\sup_ngo_cua.jpg" />
+    <Content Include="assets\images\hinh_mon_an\sup_ngo_non.jpg" />
+    <Content Include="assets\images\hinh_mon_an\susu_xao_toi.jpg" />
+    <Content Include="assets\images\hinh_mon_an\tomsu-nuocdua.jpg" />
+    <Content Include="assets\images\hinh_mon_an\tom_su_hap_nuoc_dua.jpg" />
+    <Content Include="assets\images\hinh_mon_an\tom_su_nuong_ngu_vi.jpg" />
+    <Content Include="assets\images\hinh_mon_an\tom_su_rang_muoi.jpg" />
+    <Content Include="assets\images\hinh_mon_an\xoi_ga.jpg" />
+    <Content Include="assets\images\hinh_mon_an\xoi_hoang_pho.jpg" />
+    <Content Include="assets\images\hinh_mon_an\xoi_lap_suon.jpg" />
+    <Content Include="assets\images\hinh_mon_an\xoi_vo_hat_sen.jpg" />
+    <Content Include="assets\images\layout-option\bg-01.jpg" />
+    <Content Include="assets\images\layout-option\bg-02.jpg" />
+    <Content Include="assets\images\layout-option\bg-03.jpg" />
+    <Content Include="assets\images\logo-ft.png" />
+    <Content Include="assets\images\logo-white.png" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\100xYYY-20140425045331-Hoc-nhanh-ngu-phap-tieng-Anh-tu-A-den-Z-10-phut-tu-hoc-tieng-Anh-moi-ngay.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\100xYYY-20140425045518-sherlock.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\100xYYY-20140425045603-collagen-c-120v.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10151957_230482387151053_1656045000388057065_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10153133_434987543314659_1598134944_s.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10172660_279921568850102_8291532607541772494_s.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10177968_294756800684122_6973853183140570401_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10259707_741806262526469_975731870119927497_s.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10269346_459149270884652_7979810359776464654_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10297904_1403401889946480_6050471688812490484_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10305325_1447953968779324_5426859836040094157_s.png" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10308440_240243849498965_3011113390818366423_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10322759_1448070845436339_2428930515644940195_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10347704_1558577351035209_2221303643180998315_s.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10371652_227702697439072_2818940129181016429_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10402910_666148673451621_1219657462290204278_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10410852_274931682687788_6985152825605272755_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10411772_1454214324824156_6075553809640014183_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\1491758_1484044025157402_8609267401250583831_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_bay-hoa-qua22dd.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_dau-phu1.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_kem-hoa-qua2.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_kim-chi-dua-leo5dd.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_mon-ngon-giai-cam4dd.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_muc-ong1.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_sup-bi-do2.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\1536619_538796072908441_9196538028958544122_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\1888698_1457082064508566_21667120_a.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\1959525_588718637892017_742685949525790626_t.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\282948_163908620452476_1521800170_n.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\283839_197605610387088_442916425_n.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\535378_297258140394038_1993623328_n.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\682094929-postmessagerelay.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\69987bd2a4f5c70971ac2c53cbe9.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\76872_588312574573333_1625844465_n.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\89e451fad2dff653ec6fac881871.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\984100_295363950640559_3674758081034042166_n.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\999820_576920065691635_1329549613_n.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\99b218ef16bad0ab66a650672e9f.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\a52d4c4cc8537a99bfc06f4bba0e.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ads_by.png" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\adwebphunu.aspx" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\adwebphunu.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\all.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\analytics.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\api.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\beacon.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\btnaddcmt.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\c61218a93da07c50aa08cc441ace.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\canh-ngon1.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\canh-ngon2.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\canh-ngon3.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\canh-ngon4.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\Captcha.aspx" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\close.gif" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\comments.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\compress.css" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\compress.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\core-rpc-shindig.random-shindig.sha1.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\dc.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\default.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\dialog-warning.png" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\facepile.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\fastbutton%281%29.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\fastbutton%282%29.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\fastbutton.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\fbds.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\fl.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ga.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\gpt.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\JqFrFDn0np2.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\jquery-1.7.min.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\jquery.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\js.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\jwplayer_webphunu.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\like%281%29.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\like%282%29.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\like.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\like_box.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\line-f.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\loading20x20.gif" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\logo-footer.png" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\logo_small.png" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\menuwebphunu.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\network.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\osd.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\photo.jpg" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\plusone.js" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\postmessageRelay.htm" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\pubads_impl_39.js" />
+    <Content Include="assets\images\pages\home1-about.jpg" />
+    <Content Include="assets\images\pages\home1-about.png" />
+    <Content Include="assets\images\pages\home3-deco-1.png" />
+    <Content Include="assets\images\pages\reservation-showcase.png" />
+    <Content Include="assets\images\pages\timeline-1-1-thumbnail.jpg" />
+    <Content Include="assets\images\pages\timeline-1-1.jpg" />
+    <Content Include="assets\images\pages\timeline-1-2-thumbnail.jpg" />
+    <Content Include="assets\images\pages\timeline-1-2.jpg" />
+    <Content Include="assets\images\pages\timeline-1-3-thumbnail.jpg" />
+    <Content Include="assets\images\pages\timeline-1-3.jpg" />
+    <Content Include="assets\images\pages\timeline-2-1-thumbnail.jpg" />
+    <Content Include="assets\images\pages\timeline-2-1.jpg" />
+    <Content Include="assets\images\pages\timeline-2-2-thumbnail.jpg" />
+    <Content Include="assets\images\pages\timeline-2-2.jpg" />
+    <Content Include="assets\images\pages\timeline-2-3-thumbnail.jpg" />
+    <Content Include="assets\images\pages\timeline-2-3.jpg" />
+    <Content Include="assets\images\pages\timeline-3-1-thumbnail.jpg" />
+    <Content Include="assets\images\pages\timeline-3-1.jpg" />
+    <Content Include="assets\images\pages\timeline-3-2-thumbnail.jpg" />
+    <Content Include="assets\images\pages\timeline-3-2.jpg" />
+    <Content Include="assets\images\pages\timeline-3-3-thumbnail.jpg" />
+    <Content Include="assets\images\pages\timeline-3-3.jpg" />
+    <Content Include="assets\images\partner\partner-01.png" />
+    <Content Include="assets\images\partner\partner-02.png" />
+    <Content Include="assets\images\partner\partner-03.png" />
+    <Content Include="assets\images\partner\partner-04.png" />
+    <Content Include="assets\images\product\pd-cat-breakfast.png" />
+    <Content Include="assets\images\product\pd-cat-dessert.png" />
+    <Content Include="assets\images\product\pd-cat-dinner.png" />
+    <Content Include="assets\images\product\pd-cat-drink.png" />
+    <Content Include="assets\images\product\pd-cat-lunch.png" />
+    <Content Include="assets\images\product\product-01.jpg" />
+    <Content Include="assets\images\product\product-01b.jpg" />
+    <Content Include="assets\images\product\product-01c.jpg" />
+    <Content Include="assets\images\product\product-01d.jpg" />
+    <Content Include="assets\images\product\product-01e.jpg" />
+    <Content Include="assets\images\product\product-01f.jpg" />
+    <Content Include="assets\images\product\product-01l.jpg" />
+    <Content Include="assets\images\product\product-2a.jpg" />
+    <Content Include="assets\images\product\product-2b.jpg" />
+    <Content Include="assets\images\product\product-2c.jpg" />
+    <Content Include="assets\images\product\product-2d.jpg" />
+    <Content Include="assets\images\product\product-2e.jpg" />
+    <Content Include="assets\images\product\product-2f.jpg" />
+    <Content Include="assets\images\product\product-2k.jpg" />
+    <Content Include="assets\images\product\product-2l.jpg" />
+    <Content Include="assets\images\product\product-2n.jpg" />
+    <Content Include="assets\images\product\product-circle-1a.jpg" />
+    <Content Include="assets\images\product\product-circle-1b.jpg" />
+    <Content Include="assets\images\product\product-circle-1c.jpg" />
+    <Content Include="assets\images\product\product-circle-1d.jpg" />
+    <Content Include="assets\images\product\product-circle-1e.jpg" />
+    <Content Include="assets\images\product\product-circle-1f.jpg" />
+    <Content Include="assets\images\product\product-circle-1g.jpg" />
+    <Content Include="assets\images\product\product-circle-1h.jpg" />
+    <Content Include="assets\images\product\product-circle-1k.jpg" />
+    <Content Include="assets\images\product\product-circle-1l.jpg" />
+    <Content Include="assets\images\product\product-decorate.jpg" />
+    <Content Include="assets\images\product\product-full-02.jpg" />
+    <Content Include="assets\images\product\product-full-03.jpg" />
+    <Content Include="assets\images\product\product-full-04.jpg" />
+    <Content Include="assets\images\product\product-thumb-02.jpg" />
+    <Content Include="assets\images\product\product-thumb-03.jpg" />
+    <Content Include="assets\images\product\product-thumb-04.jpg" />
+    <Content Include="assets\images\service\service-image-01.png" />
+    <Content Include="assets\images\slider\slider1-bg1.jpg" />
+    <Content Include="assets\images\slider\slider1-bg2.jpg" />
+    <Content Include="assets\images\slider\slider1-icon.png" />
+    <Content Include="assets\images\slider\slider2-bg1.jpg" />
+    <Content Include="assets\images\slider\slider2-icon.png" />
+    <Content Include="assets\images\slider\slider3-icon.png" />
+    <Content Include="assets\images\slider\slider3-icon2.png" />
+    <Content Include="assets\images\team\team-1.png" />
+    <Content Include="assets\images\team\team-2.png" />
+    <Content Include="assets\images\team\team-3.png" />
+    <Content Include="assets\images\team\team-4.png" />
+    <Content Include="assets\images\team\team-thumbnail-1.png" />
+    <Content Include="assets\images\team\team-thumbnail-2.png" />
+    <Content Include="assets\images\team\team-thumbnail-3.png" />
+    <Content Include="assets\images\team\team-thumbnail-4.png" />
+    <Content Include="assets\images\testi\testi-1.jpg" />
+    <Content Include="assets\images\testi\testi-2.jpg" />
+    <Content Include="assets\images\testi\testi-3.jpg" />
+    <Content Include="assets\images\testi\testi-4.jpg" />
+    <Content Include="assets\images\testi\testi-signal.png" />
+    <Content Include="assets\images\thuc_don\LEAFLET Student Menu New-01.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_1.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_10.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_11.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_12.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_13.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_14.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_15.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_2.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_3.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_4.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_5.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_6.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_7.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_8.jpg" />
+    <Content Include="assets\images\thuc_don\thuc_don_9.jpg" />
+    <Content Include="assets\images\thuc_don\V0010407.vit.jpg" />
+    <Content Include="assets\images\timeline\timeline-1.jpg" />
+    <Content Include="assets\images\timeline\timeline-2.jpg" />
+    <Content Include="assets\images\timeline\timeline-3.jpg" />
+    <Content Include="assets\images\timeline\timeline-4.jpg" />
+    <Content Include="assets\images\timeline\timeline-5.jpg" />
+    <Content Include="assets\images\timeline\timeline-6.jpg" />
+    <Content Include="assets\images\timeline\timeline-7.jpg" />
+    <Content Include="assets\images\widget\wg-gallery1.jpg" />
+    <Content Include="assets\images\widget\wg-recent-post1.jpg" />
+    <Content Include="assets\images\widget\wg-recent-post2.jpg" />
+    <Content Include="assets\images\widget\wg-recent-post3.jpg" />
+    <Content Include="assets\js\elements.js" />
+    <Content Include="assets\js\layout.js" />
+    <Content Include="assets\js\map.js" />
+    <Content Include="assets\js\widget.js" />
+    <Content Include="assets\vendors\animate.min.css" />
+    <Content Include="assets\vendors\audiojs\audio.min.js" />
+    <Content Include="assets\vendors\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="assets\vendors\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="assets\vendors\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\vendors\bootstrap\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="assets\vendors\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\vendors\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\vendors\flexslider\flexslider.min.css" />
+    <Content Include="assets\vendors\flexslider\fonts\flexslider-icon.svg" />
+    <Content Include="assets\vendors\flexslider\jquery.flexslider-min.js" />
+    <Content Include="assets\vendors\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.html" />
+    <Content Include="assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="assets\vendors\gmaps\gmaps.js" />
+    <Content Include="assets\vendors\gmaps\gmaps.min.js" />
+    <Content Include="assets\vendors\html5shiv.js" />
+    <Content Include="assets\vendors\isotope\isotope.pkgd.min.js" />
+    <Content Include="assets\vendors\jquery-1.10.2.min.js" />
+    <Content Include="assets\vendors\jquery-appear\jquery.appear.js" />
+    <Content Include="assets\vendors\jquery-appear\jquery.appear.min.js" />
+    <Content Include="assets\vendors\jquery-cookie\js.cookie.js" />
+    <Content Include="assets\vendors\jquery-countTo\jquery.countTo.js" />
+    <Content Include="assets\vendors\jquery-countTo\jquery.countTo.min.js" />
+    <Content Include="assets\vendors\nicescroll\jquery.nicescroll.min.js" />
+    <Content Include="assets\vendors\pageloading\css\component.min.css" />
+    <Content Include="assets\vendors\pageloading\js\classie.js" />
+    <Content Include="assets\vendors\pageloading\js\classie.min.js" />
+    <Content Include="assets\vendors\pageloading\js\snap.svg-min.js" />
+    <Content Include="assets\vendors\pageloading\js\svgLoader.js" />
+    <Content Include="assets\vendors\pageloading\js\svgLoader.min.js" />
+    <Content Include="assets\vendors\pageloading\sidebartransition\css\component.css" />
+    <Content Include="assets\vendors\pageloading\sidebartransition\js\classie1.js" />
+    <Content Include="assets\vendors\pageloading\sidebartransition\js\modernizr.custom.js" />
+    <Content Include="assets\vendors\pageloading\sidebartransition\js\sidebarEffects.js" />
+    <Content Include="assets\vendors\pageloading\sidebartransition\js\sidebarEffects.min.js" />
+    <Content Include="assets\vendors\parallax\parallax.min.js" />
+    <Content Include="assets\vendors\respond.min.js" />
+    <Content Include="assets\vendors\skrollr.min.js" />
+    <Content Include="assets\vendors\slick\ajax-loader.gif" />
+    <Content Include="assets\vendors\slick\fonts\slick.svg" />
+    <Content Include="assets\vendors\slick\slick-theme.min.css" />
+    <Content Include="assets\vendors\slick\slick.min.css" />
+    <Content Include="assets\vendors\slick\slick.min.js" />
+    <Content Include="assets\vendors\swipebox\css\swipebox.min.css" />
+    <Content Include="assets\vendors\swipebox\img\icons.png" />
+    <Content Include="assets\vendors\swipebox\img\loader.gif" />
+    <Content Include="assets\vendors\swipebox\js\jquery.swipebox.min.js" />
+    <Content Include="assets\vendors\vide\jquery.vide.min.js" />
+    <Content Include="assets\vendors\wowjs\wow.min.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="public\about.html" />
+    <Content Include="public\assets\css\color\colordefault.css" />
+    <Content Include="public\assets\css\elements.css" />
+    <Content Include="public\assets\css\extra.css" />
+    <Content Include="public\assets\css\layout.css" />
+    <Content Include="public\assets\css\live-settings.css" />
+    <Content Include="public\assets\css\responsive.css" />
+    <Content Include="public\assets\css\widget.css" />
+    <Content Include="public\assets\fonts\font-icon\fonts\icomoon78f5.svg" />
+    <Content Include="public\assets\fonts\font-icon\style.css" />
+    <Content Include="public\assets\images\404\404_bg.jpg" />
+    <Content Include="public\assets\images\404\image-main.png" />
+    <Content Include="public\assets\images\background\ab_team_01.png" />
+    <Content Include="public\assets\images\background\bg1.jpg" />
+    <Content Include="public\assets\images\background\bg1_0.jpg" />
+    <Content Include="public\assets\images\background\bg2.jpg" />
+    <Content Include="public\assets\images\background\bg3.jpg" />
+    <Content Include="public\assets\images\background\bg4.jpg" />
+    <Content Include="public\assets\images\background\bg5.png" />
+    <Content Include="public\assets\images\background\bg6.jpg" />
+    <Content Include="public\assets\images\background\bg7.jpg" />
+    <Content Include="public\assets\images\background\bg8.jpg" />
+    <Content Include="public\assets\images\background\black-bg.jpg" />
+    <Content Include="public\assets\images\background\chef01.png" />
+    <Content Include="public\assets\images\background\chef02.png" />
+    <Content Include="public\assets\images\background\food1.png" />
+    <Content Include="public\assets\images\background\footer-bg.jpg" />
+    <Content Include="public\assets\images\background\ft-res-bg.jpg" />
+    <Content Include="public\assets\images\background\home2-img-deco.png" />
+    <Content Include="public\assets\images\background\layout-boxed.html" />
+    <Content Include="public\assets\images\background\lemon.png" />
+    <Content Include="public\assets\images\background\pagetitle-about.jpg" />
+    <Content Include="public\assets\images\background\pagetitle-bg.jpg" />
+    <Content Include="public\assets\images\background\pagetitle-blog.jpg" />
+    <Content Include="public\assets\images\background\pagetitle-menu.jpg" />
+    <Content Include="public\assets\images\background\pagetitle-product.jpg" />
+    <Content Include="public\assets\images\background\pagetitle-reservation.jpg" />
+    <Content Include="public\assets\images\background\pizza1.png" />
+    <Content Include="public\assets\images\background\reservation-bg-01.jpg" />
+    <Content Include="public\assets\images\background\soup1.png" />
+    <Content Include="public\assets\images\background\soup2.png" />
+    <Content Include="public\assets\images\background\vegetable_01.png" />
+    <Content Include="public\assets\images\background\vegetable_02.png" />
+    <Content Include="public\assets\images\background\vegetable_03.png" />
+    <Content Include="public\assets\images\background\video-bg.jpg" />
+    <Content Include="public\assets\images\banner-img-1.jpg" />
+    <Content Include="public\assets\images\banner-img-2.jpg" />
+    <Content Include="public\assets\images\blog\blog-05.jpg" />
+    <Content Include="public\assets\images\blog\blog-author.jpg" />
+    <Content Include="public\assets\images\blog\blog-comment-avatar01.jpg" />
+    <Content Include="public\assets\images\blog\blog-comment-avatar02.jpg" />
+    <Content Include="public\assets\images\blog\blog-comment-avatar03.jpg" />
+    <Content Include="public\assets\images\blog\blog-grid-1-1.jpg" />
+    <Content Include="public\assets\images\blog\blog-grid-1-2.jpg" />
+    <Content Include="public\assets\images\blog\blog-grid-1.jpg" />
+    <Content Include="public\assets\images\blog\blog-grid-3.jpg" />
+    <Content Include="public\assets\images\blog\blog-grid-4.jpg" />
+    <Content Include="public\assets\images\blog\blog-single-01.jpg" />
+    <Content Include="public\assets\images\blog\blog-single-02.jpg" />
+    <Content Include="public\assets\images\blog\blog-single-03.jpg" />
+    <Content Include="public\assets\images\blog\blog-slider-1.jpg" />
+    <Content Include="public\assets\images\blog\blog-slider-2.jpg" />
+    <Content Include="public\assets\images\blog\blog-slider-3.jpg" />
+    <Content Include="public\assets\images\blog\blog-slider-4.jpg" />
+    <Content Include="public\assets\images\blog\blog-slider-5.jpg" />
+    <Content Include="public\assets\images\blog\blog-slider-6.jpg" />
+    <Content Include="public\assets\images\blog\blog-slider-7.jpg" />
+    <Content Include="public\assets\images\counter-1.png" />
+    <Content Include="public\assets\images\counter-2.png" />
+    <Content Include="public\assets\images\counter-3.png" />
+    <Content Include="public\assets\images\counter-4.png" />
+    <Content Include="public\assets\images\event\event-01.jpg" />
+    <Content Include="public\assets\images\event\event-02.jpg" />
+    <Content Include="public\assets\images\feature-box-bg-2.jpg" />
+    <Content Include="public\assets\images\feature-box-bg-3.jpg" />
+    <Content Include="public\assets\images\feature-box-bg.jpg" />
+    <Content Include="public\assets\images\featured-box-bg-1.jpg" />
+    <Content Include="public\assets\images\gallery\gallery-1.jpg" />
+    <Content Include="public\assets\images\gallery\gallery-2.jpg" />
+    <Content Include="public\assets\images\gallery\gallery-3.jpg" />
+    <Content Include="public\assets\images\gallery\gallery-4.jpg" />
+    <Content Include="public\assets\images\gallery\gallery-5.jpg" />
+    <Content Include="public\assets\images\gallery\gallery-6.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\1.png" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\banh_man.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\bao_ngu.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\bun_mi_mien_pho.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\caloc-bongly.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\chao_sup_canh.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\com.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\mon_cuon.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\nom.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\nuoc_giai_khat.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\page2-img5.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\salat.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\xao.jpg" />
+    <Content Include="public\assets\images\hinh_loai_mon_an\xoi_ga10.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\Banh-Canh-Thit.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\banh_chung.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\bao_ngu_om_cai_xanh.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\bao_ngu_sot_dau_hao.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\bao_ngu_sot_nam.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\bong_cai_xanh.png" />
+    <Content Include="public\assets\images\hinh_mon_an\bo_luc_lac_khoai_tay.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\bo_sot_tieu_den.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\bo_uc_bit_tet.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\cai_lan_xao_toi.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\canh ngao.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\canh_bong_moc_thap_cam.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\canh_ga_nam_tuoi.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\canh_moc_tom_cua.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\ca_dieu_hong_chien_xu.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\ca_tam_nuong.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\com_hanh_phuc.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\com_rang_hai_san.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\com_tam.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\com_tam_ga.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\cua_bay_chien_bo.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\dua_hau.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\dua_vang.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\ga_hap_la_canh.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\ga_nuong_pd.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\ga_nuong_phu_dong.JPG" />
+    <Content Include="public\assets\images\hinh_mon_an\ga_sot_cam.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\goi muop dang ruoc.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\goi-kho-qua-muop-dang.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\hoa_qua_thap_cam.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\ImageHandler.ashx.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\kem-caramen.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\khen_lanh.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\muc_xao_tham_cap.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\muop_xao_nam_gion_ngot.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\nam bao ngu xao toi.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\nem-oc-phu-dong.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\ngochien.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\nom_bo_rau_muong.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\nom_ga_hoa_chuoi.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\nom_ga_rau_chuoi.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\nom_ga_xe_phay.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\nuoc_giai_khat_cac_loai.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\oc-buou-kho-gung.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\rau_cai_chip_vao_thit_hop.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\salad_ca_ngu.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\salad_tom_thai_thom.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\salat.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\salat_ca_chua_dua_chuot.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\sup_hai_san.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\sup_ngo_cua.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\sup_ngo_non.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\susu_xao_toi.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\tomsu-nuocdua.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\tom_su_hap_nuoc_dua.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\tom_su_nuong_ngu_vi.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\tom_su_rang_muoi.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\xoi_ga.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\xoi_hoang_pho.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\xoi_lap_suon.jpg" />
+    <Content Include="public\assets\images\hinh_mon_an\xoi_vo_hat_sen.jpg" />
+    <Content Include="public\assets\images\layout-option\bg-01.jpg" />
+    <Content Include="public\assets\images\layout-option\bg-02.jpg" />
+    <Content Include="public\assets\images\layout-option\bg-03.jpg" />
+    <Content Include="public\assets\images\logo-ft.png" />
+    <Content Include="public\assets\images\logo-white.png" />
+    <Content Include="public\assets\images\logo.png" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\100xYYY-20140425045331-Hoc-nhanh-ngu-phap-tieng-Anh-tu-A-den-Z-10-phut-tu-hoc-tieng-Anh-moi-ngay.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\100xYYY-20140425045518-sherlock.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\100xYYY-20140425045603-collagen-c-120v.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10151957_230482387151053_1656045000388057065_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10153133_434987543314659_1598134944_s.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10172660_279921568850102_8291532607541772494_s.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10177968_294756800684122_6973853183140570401_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10259707_741806262526469_975731870119927497_s.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10269346_459149270884652_7979810359776464654_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10297904_1403401889946480_6050471688812490484_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10305325_1447953968779324_5426859836040094157_s.png" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10308440_240243849498965_3011113390818366423_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10322759_1448070845436339_2428930515644940195_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10347704_1558577351035209_2221303643180998315_s.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10371652_227702697439072_2818940129181016429_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10402910_666148673451621_1219657462290204278_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10410852_274931682687788_6985152825605272755_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\10411772_1454214324824156_6075553809640014183_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\1491758_1484044025157402_8609267401250583831_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_bay-hoa-qua22dd.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_dau-phu1.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_kem-hoa-qua2.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_kim-chi-dua-leo5dd.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_mon-ngon-giai-cam4dd.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_muc-ong1.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\150x96_sup-bi-do2.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\1536619_538796072908441_9196538028958544122_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\1888698_1457082064508566_21667120_a.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\1959525_588718637892017_742685949525790626_t.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\282948_163908620452476_1521800170_n.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\283839_197605610387088_442916425_n.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\535378_297258140394038_1993623328_n.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\682094929-postmessagerelay.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\69987bd2a4f5c70971ac2c53cbe9.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\76872_588312574573333_1625844465_n.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\89e451fad2dff653ec6fac881871.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\984100_295363950640559_3674758081034042166_n.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\999820_576920065691635_1329549613_n.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\99b218ef16bad0ab66a650672e9f.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\a52d4c4cc8537a99bfc06f4bba0e.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ads_by.png" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\adwebphunu.aspx" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\adwebphunu.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\all.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\analytics.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\api.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\beacon.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\btnaddcmt.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\c61218a93da07c50aa08cc441ace.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\canh-ngon1.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\canh-ngon2.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\canh-ngon3.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\canh-ngon4.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\Captcha.aspx" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\close.gif" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\comments.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\compress.css" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\compress.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\core-rpc-shindig.random-shindig.sha1.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\dc.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\default.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\dialog-warning.png" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\facepile.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\fastbutton%281%29.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\fastbutton%282%29.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\fastbutton.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\fbds.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\fl.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ga.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\gpt.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\JqFrFDn0np2.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\jquery-1.7.min.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\jquery.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\js.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\jwplayer_webphunu.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\like%281%29.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\like%282%29.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\like.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\like_box.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\line-f.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\loading20x20.gif" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\logo-footer.png" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\logo_small.png" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\menuwebphunu.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\network.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\osd.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\photo.jpg" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\plusone.js" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\postmessageRelay.htm" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\pubads_impl_39.js" />
+    <Content Include="public\assets\images\pages\home1-about.jpg" />
+    <Content Include="public\assets\images\pages\home1-about.png" />
+    <Content Include="public\assets\images\pages\home3-deco-1.png" />
+    <Content Include="public\assets\images\pages\reservation-showcase.png" />
+    <Content Include="public\assets\images\pages\timeline-1-1-thumbnail.jpg" />
+    <Content Include="public\assets\images\pages\timeline-1-1.jpg" />
+    <Content Include="public\assets\images\pages\timeline-1-2-thumbnail.jpg" />
+    <Content Include="public\assets\images\pages\timeline-1-2.jpg" />
+    <Content Include="public\assets\images\pages\timeline-1-3-thumbnail.jpg" />
+    <Content Include="public\assets\images\pages\timeline-1-3.jpg" />
+    <Content Include="public\assets\images\pages\timeline-2-1-thumbnail.jpg" />
+    <Content Include="public\assets\images\pages\timeline-2-1.jpg" />
+    <Content Include="public\assets\images\pages\timeline-2-2-thumbnail.jpg" />
+    <Content Include="public\assets\images\pages\timeline-2-2.jpg" />
+    <Content Include="public\assets\images\pages\timeline-2-3-thumbnail.jpg" />
+    <Content Include="public\assets\images\pages\timeline-2-3.jpg" />
+    <Content Include="public\assets\images\pages\timeline-3-1-thumbnail.jpg" />
+    <Content Include="public\assets\images\pages\timeline-3-1.jpg" />
+    <Content Include="public\assets\images\pages\timeline-3-2-thumbnail.jpg" />
+    <Content Include="public\assets\images\pages\timeline-3-2.jpg" />
+    <Content Include="public\assets\images\pages\timeline-3-3-thumbnail.jpg" />
+    <Content Include="public\assets\images\pages\timeline-3-3.jpg" />
+    <Content Include="public\assets\images\partner\partner-01.png" />
+    <Content Include="public\assets\images\partner\partner-02.png" />
+    <Content Include="public\assets\images\partner\partner-03.png" />
+    <Content Include="public\assets\images\partner\partner-04.png" />
+    <Content Include="public\assets\images\product\pd-cat-breakfast.png" />
+    <Content Include="public\assets\images\product\pd-cat-dessert.png" />
+    <Content Include="public\assets\images\product\pd-cat-dinner.png" />
+    <Content Include="public\assets\images\product\pd-cat-drink.png" />
+    <Content Include="public\assets\images\product\pd-cat-lunch.png" />
+    <Content Include="public\assets\images\product\product-01.jpg" />
+    <Content Include="public\assets\images\product\product-01b.jpg" />
+    <Content Include="public\assets\images\product\product-01c.jpg" />
+    <Content Include="public\assets\images\product\product-01d.jpg" />
+    <Content Include="public\assets\images\product\product-01e.jpg" />
+    <Content Include="public\assets\images\product\product-01f.jpg" />
+    <Content Include="public\assets\images\product\product-01l.jpg" />
+    <Content Include="public\assets\images\product\product-2a.jpg" />
+    <Content Include="public\assets\images\product\product-2b.jpg" />
+    <Content Include="public\assets\images\product\product-2c.jpg" />
+    <Content Include="public\assets\images\product\product-2d.jpg" />
+    <Content Include="public\assets\images\product\product-2e.jpg" />
+    <Content Include="public\assets\images\product\product-2f.jpg" />
+    <Content Include="public\assets\images\product\product-2k.jpg" />
+    <Content Include="public\assets\images\product\product-2l.jpg" />
+    <Content Include="public\assets\images\product\product-2n.jpg" />
+    <Content Include="public\assets\images\product\product-circle-1a.jpg" />
+    <Content Include="public\assets\images\product\product-circle-1b.jpg" />
+    <Content Include="public\assets\images\product\product-circle-1c.jpg" />
+    <Content Include="public\assets\images\product\product-circle-1d.jpg" />
+    <Content Include="public\assets\images\product\product-circle-1e.jpg" />
+    <Content Include="public\assets\images\product\product-circle-1f.jpg" />
+    <Content Include="public\assets\images\product\product-circle-1g.jpg" />
+    <Content Include="public\assets\images\product\product-circle-1h.jpg" />
+    <Content Include="public\assets\images\product\product-circle-1k.jpg" />
+    <Content Include="public\assets\images\product\product-circle-1l.jpg" />
+    <Content Include="public\assets\images\product\product-decorate.jpg" />
+    <Content Include="public\assets\images\product\product-full-02.jpg" />
+    <Content Include="public\assets\images\product\product-full-03.jpg" />
+    <Content Include="public\assets\images\product\product-full-04.jpg" />
+    <Content Include="public\assets\images\product\product-thumb-02.jpg" />
+    <Content Include="public\assets\images\product\product-thumb-03.jpg" />
+    <Content Include="public\assets\images\product\product-thumb-04.jpg" />
+    <Content Include="public\assets\images\service\service-image-01.png" />
+    <Content Include="public\assets\images\slider\slider1-bg1.jpg" />
+    <Content Include="public\assets\images\slider\slider1-bg2.jpg" />
+    <Content Include="public\assets\images\slider\slider1-icon.png" />
+    <Content Include="public\assets\images\slider\slider2-bg1.jpg" />
+    <Content Include="public\assets\images\slider\slider2-icon.png" />
+    <Content Include="public\assets\images\slider\slider3-icon.png" />
+    <Content Include="public\assets\images\slider\slider3-icon2.png" />
+    <Content Include="public\assets\images\team\team-1.png" />
+    <Content Include="public\assets\images\team\team-2.png" />
+    <Content Include="public\assets\images\team\team-3.png" />
+    <Content Include="public\assets\images\team\team-4.png" />
+    <Content Include="public\assets\images\team\team-thumbnail-1.png" />
+    <Content Include="public\assets\images\team\team-thumbnail-2.png" />
+    <Content Include="public\assets\images\team\team-thumbnail-3.png" />
+    <Content Include="public\assets\images\team\team-thumbnail-4.png" />
+    <Content Include="public\assets\images\testi\testi-1.jpg" />
+    <Content Include="public\assets\images\testi\testi-2.jpg" />
+    <Content Include="public\assets\images\testi\testi-3.jpg" />
+    <Content Include="public\assets\images\testi\testi-4.jpg" />
+    <Content Include="public\assets\images\testi\testi-signal.png" />
+    <Content Include="public\assets\images\thuc_don\LEAFLET Student Menu New-01.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_1.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_10.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_11.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_12.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_13.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_14.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_15.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_2.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_3.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_4.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_5.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_6.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_7.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_8.jpg" />
+    <Content Include="public\assets\images\thuc_don\thuc_don_9.jpg" />
+    <Content Include="public\assets\images\thuc_don\V0010407.vit.jpg" />
+    <Content Include="public\assets\images\timeline\timeline-1.jpg" />
+    <Content Include="public\assets\images\timeline\timeline-2.jpg" />
+    <Content Include="public\assets\images\timeline\timeline-3.jpg" />
+    <Content Include="public\assets\images\timeline\timeline-4.jpg" />
+    <Content Include="public\assets\images\timeline\timeline-5.jpg" />
+    <Content Include="public\assets\images\timeline\timeline-6.jpg" />
+    <Content Include="public\assets\images\timeline\timeline-7.jpg" />
+    <Content Include="public\assets\images\widget\wg-gallery1.jpg" />
+    <Content Include="public\assets\images\widget\wg-recent-post1.jpg" />
+    <Content Include="public\assets\images\widget\wg-recent-post2.jpg" />
+    <Content Include="public\assets\images\widget\wg-recent-post3.jpg" />
+    <Content Include="public\assets\js\elements.js" />
+    <Content Include="public\assets\js\layout.js" />
+    <Content Include="public\assets\js\map.js" />
+    <Content Include="public\assets\js\widget.js" />
+    <Content Include="public\assets\vendors\animate.min.css" />
+    <Content Include="public\assets\vendors\audiojs\audio.min.js" />
+    <Content Include="public\assets\vendors\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="public\assets\vendors\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="public\assets\vendors\bootstrap\css\bootstrap.min.css" />
+    <Content Include="public\assets\vendors\bootstrap\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="public\assets\vendors\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\assets\vendors\bootstrap\js\bootstrap.min.js" />
+    <Content Include="public\assets\vendors\flexslider\flexslider.min.css" />
+    <Content Include="public\assets\vendors\flexslider\fonts\flexslider-icon.svg" />
+    <Content Include="public\assets\vendors\flexslider\jquery.flexslider-min.js" />
+    <Content Include="public\assets\vendors\font-awesome\css\font-awesome.min.css" />
+    <Content Include="public\assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.html" />
+    <Content Include="public\assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="public\assets\vendors\gmaps\gmaps.js" />
+    <Content Include="public\assets\vendors\gmaps\gmaps.min.js" />
+    <Content Include="public\assets\vendors\html5shiv.js" />
+    <Content Include="public\assets\vendors\isotope\isotope.pkgd.min.js" />
+    <Content Include="public\assets\vendors\jquery-1.10.2.min.js" />
+    <Content Include="public\assets\vendors\jquery-appear\jquery.appear.js" />
+    <Content Include="public\assets\vendors\jquery-appear\jquery.appear.min.js" />
+    <Content Include="public\assets\vendors\jquery-cookie\js.cookie.js" />
+    <Content Include="public\assets\vendors\jquery-countTo\jquery.countTo.js" />
+    <Content Include="public\assets\vendors\jquery-countTo\jquery.countTo.min.js" />
+    <Content Include="public\assets\vendors\nicescroll\jquery.nicescroll.min.js" />
+    <Content Include="public\assets\vendors\pageloading\css\component.min.css" />
+    <Content Include="public\assets\vendors\pageloading\js\classie.js" />
+    <Content Include="public\assets\vendors\pageloading\js\classie.min.js" />
+    <Content Include="public\assets\vendors\pageloading\js\snap.svg-min.js" />
+    <Content Include="public\assets\vendors\pageloading\js\svgLoader.js" />
+    <Content Include="public\assets\vendors\pageloading\js\svgLoader.min.js" />
+    <Content Include="public\assets\vendors\pageloading\sidebartransition\css\component.css" />
+    <Content Include="public\assets\vendors\pageloading\sidebartransition\js\classie1.js" />
+    <Content Include="public\assets\vendors\pageloading\sidebartransition\js\modernizr.custom.js" />
+    <Content Include="public\assets\vendors\pageloading\sidebartransition\js\sidebarEffects.js" />
+    <Content Include="public\assets\vendors\pageloading\sidebartransition\js\sidebarEffects.min.js" />
+    <Content Include="public\assets\vendors\parallax\parallax.min.js" />
+    <Content Include="public\assets\vendors\respond.min.js" />
+    <Content Include="public\assets\vendors\skrollr.min.js" />
+    <Content Include="public\assets\vendors\slick\ajax-loader.gif" />
+    <Content Include="public\assets\vendors\slick\fonts\slick.svg" />
+    <Content Include="public\assets\vendors\slick\slick-theme.min.css" />
+    <Content Include="public\assets\vendors\slick\slick.min.css" />
+    <Content Include="public\assets\vendors\slick\slick.min.js" />
+    <Content Include="public\assets\vendors\style.css" />
+    <Content Include="public\assets\vendors\swipebox\css\swipebox.min.css" />
+    <Content Include="public\assets\vendors\swipebox\img\icons.png" />
+    <Content Include="public\assets\vendors\swipebox\img\loader.gif" />
+    <Content Include="public\assets\vendors\swipebox\js\jquery.swipebox.min.js" />
+    <Content Include="public\assets\vendors\vide\jquery.vide.min.js" />
+    <Content Include="public\assets\vendors\wowjs\wow.min.js" />
+    <Content Include="public\checkout.html" />
+    <Content Include="public\chi-tiet-mon-an.html" />
+    <Content Include="public\contact.html" />
+    <Content Include="public\ds-thuc-don.html" />
+    <Content Include="public\index.html" />
+    <Content Include="public\login.html" />
+    <Content Include="public\mon-an-theo-mua.html" />
+    <Content Include="public\tim-kiem.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\fonts\font-icon\fonts\icomoon78f5.eot" />
+    <Content Include="assets\fonts\font-icon\fonts\icomoon78f5.ttf" />
+    <Content Include="assets\fonts\font-icon\fonts\icomoon78f5.woff" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\cb=gapi.loaded_0" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\cb=gapi.loaded_1" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\cb=gapi.loaded_2" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\saved_resource" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\saved_resource%281%29" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ScriptResource%281%29.axd" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ScriptResource%2810%29.axd" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ScriptResource%2811%29.axd" />
+    <Content Include="assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ScriptResource%282%29.axd" />
+    <Content Include="assets\vendors\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\vendors\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\vendors\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\vendors\bootstrap\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="assets\vendors\flexslider\fonts\flexslider-icon.eot" />
+    <Content Include="assets\vendors\flexslider\fonts\flexslider-icon.ttf" />
+    <Content Include="assets\vendors\flexslider\fonts\flexslider-icon.woff" />
+    <Content Include="assets\vendors\flexslider\fonts\flexslider-icond41d.eot" />
+    <Content Include="assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="assets\vendors\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="assets\vendors\slick\fonts\slick.eot" />
+    <Content Include="assets\vendors\slick\fonts\slick.ttf" />
+    <Content Include="assets\vendors\slick\fonts\slick.woff" />
+    <Content Include="assets\vendors\slick\fonts\slickd41d.eot" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="public\assets\fonts\font-icon\fonts\icomoon78f5.eot" />
+    <Content Include="public\assets\fonts\font-icon\fonts\icomoon78f5.ttf" />
+    <Content Include="public\assets\fonts\font-icon\fonts\icomoon78f5.woff" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\cb=gapi.loaded_0" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\cb=gapi.loaded_1" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\cb=gapi.loaded_2" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\saved_resource" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\saved_resource%281%29" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ScriptResource%281%29.axd" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ScriptResource%2810%29.axd" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ScriptResource%2811%29.axd" />
+    <Content Include="public\assets\images\mon_an_theo_mua\ha\4 món canh ngon nên ăn trong mùa xuân_files\ScriptResource%282%29.axd" />
+    <Content Include="public\assets\vendors\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\assets\vendors\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\assets\vendors\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\assets\vendors\bootstrap\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="public\assets\vendors\flexslider\fonts\flexslider-icon.eot" />
+    <Content Include="public\assets\vendors\flexslider\fonts\flexslider-icon.ttf" />
+    <Content Include="public\assets\vendors\flexslider\fonts\flexslider-icon.woff" />
+    <Content Include="public\assets\vendors\flexslider\fonts\flexslider-icond41d.eot" />
+    <Content Include="public\assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="public\assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="public\assets\vendors\font-awesome\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="public\assets\vendors\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="public\assets\vendors\slick\fonts\slick.eot" />
+    <Content Include="public\assets\vendors\slick\fonts\slick.ttf" />
+    <Content Include="public\assets\vendors\slick\fonts\slick.woff" />
+    <Content Include="public\assets\vendors\slick\fonts\slickd41d.eot" />
+    <Content Include="public\README.md" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\public\assets\font-awesome\fonts\fontawesome-webfontba72.eot" />
+    <Content Include="Areas\Admin\public\assets\font-awesome\fonts\fontawesome-webfontba72.woff" />
+    <Content Include="Areas\Admin\public\assets\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Areas\Admin\public\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\public\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\public\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\FoodToDayPartial.cshtml" />
+    <Content Include="Views\ThucDon\Index.cshtml" />
+    <Content Include="Views\ThucDon\FoodInMenuPartial.cshtml" />
+    <Content Include="Views\ThucDon\MenuPartial.cshtml" />
+    <Content Include="Views\Layout\LayoutUser.cshtml" />
+    <Content Include="Views\FoodDetail\Index.cshtml" />
+    <Content Include="Views\FoodType\Index.cshtml" />
+    <Content Include="Views\SearchPage\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\FoodType\TypeFoodPartial.cshtml" />
+    <Content Include="Views\FoodDetail\FoodTypePartial.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Signup\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="assets\images\thuc_don\_notes\" />
+    <Folder Include="public\assets\images\thuc_don\_notes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60442</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60442/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

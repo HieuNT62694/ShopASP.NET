@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1c107fd0bef5441d91b55cd50c1400c4" Name="Diagram1">
+        <EntityTypeShape EntityType="projectModel.bill_detail" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.bill" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.customer" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.food_type" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.food" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.menu" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.menu_detail" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.role_resource" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.sysdiagram" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectModel.user" Width="1.5" PointX="7.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="projectModel.FK_bill_detail_bills" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK_bill_detail_foods" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK_bills_customers" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK_foods_food_type" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK_menu_detail_foods" ManuallyRouted="false" />
+        <AssociationConnector Association="projectModel.FK_menu_detail_menu" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

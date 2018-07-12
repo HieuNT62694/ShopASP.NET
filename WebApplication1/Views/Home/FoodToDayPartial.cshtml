@@ -1,0 +1,19 @@
+﻿@using WebApplication1.Models;
+@model List<food>
+
+@{
+    foreach (var foodstoday in Model)
+    {
+        <div class="item product-01">
+            <div class="item-left">
+                <img src="~/assets/images/hinh_mon_an/@foodstoday.image" alt="" class="img img-responsive">
+                <div class="content-wrapper">
+                    <a href="@Url.Action("Index","FoodDetail",new {@id = @foodstoday.id,@idtype=foodstoday.id_type })" class="title">@foodstoday.name</a>
+                    <div class="dot">...................</div>
+                    <div class="des">@foodstoday.summary</div>
+                </div>
+            </div>
+            <div class="item-right"><span class="price woocommerce-Price-amount amount"><span class="price-symbol">$</span>@foodstoday.price</span></div>
+        </div>
+    }
+}

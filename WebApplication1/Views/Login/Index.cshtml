@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/LayoutUser.cshtml";
+}
+<link href="~/public/assets/vendors/style.css" rel="stylesheet" />
+<div data-bottom-top="background-position: 50% 50px;" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -50px;" class="page-title page-menu">
+    <div class="container">
+        <div class="title-wrapper">
+            <div data-top="transform: translateY(0px);opacity:1;" data--20-top="transform: translateY(-5px);" data--50-top="transform: translateY(-15px);opacity:0.8;" data--120-top="transform: translateY(-30px);opacity:0;" data-anchor-target=".page-title" class="title">Login</div>
+            <div data-top="opacity:1;" data--120-top="opacity:0;" data-anchor-target=".page-title" class="divider"><span class="line-before"></span><span class="dot"></span><span class="line-after"></span></div>
+            <div data-top="transform: translateY(0px);opacity:1;" data--20-top="transform: translateY(5px);" data--50-top="transform: translateY(15px);opacity:0.8;" data--120-top="transform: translateY(30px);opacity:0;" data-anchor-target=".page-title" class="subtitle">The various dishes are waiting for your coming to enjoy its</div>
+        </div>
+    </div>
+</div>
+<div class="banner-bottom">
+    <div class="container">
+        <!-- news-and-events -->
+        <div class="row carousel-holder">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <h2>Login</h2>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("CheckLogin", "Login",FormMethod.Post))
+    {
+                    <div>
+                        <label>Email</label>
+                        <input type="text" class="form-control" placeholder="Email" name="email">
+                    </div>
+                    <br>
+                    <div>
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-success">
+                        Submit
+                    </button>
+                    @Html.ActionLink("Signup", "Index", "Signup")
+}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="clearfix" style="margin-bottom: 100px"></div>
+        <!-- //news-and-events -->
+    </div>
+</div>
+
