@@ -918,6 +918,7 @@
     <Content Include="assets\images\widget\wg-recent-post1.jpg" />
     <Content Include="assets\images\widget\wg-recent-post2.jpg" />
     <Content Include="assets\images\widget\wg-recent-post3.jpg" />
+    <Content Include="assets\js\Controller\CartController.js" />
     <Content Include="assets\js\elements.js" />
     <Content Include="assets\js\layout.js" />
     <Content Include="assets\js\map.js" />

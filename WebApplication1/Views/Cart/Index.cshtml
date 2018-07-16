@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Layout/LayoutUser.cshtml";
 }
-
+<script src="~/assets/js/Controller/CartController.js"></script>
 <div class="page-container">
     <div data-bottom-top="background-position: 50% 50px;" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -50px;" class="page-title page-reservation">
         <div class="container">
@@ -24,51 +24,59 @@
                     </div>
                     <div class="reservation-form">
                         <div class="swin-sc swin-sc-contact-form light mtl">
-                            <table class="table table-striped" style="text-align: center;">
-                                <thead>
-                                    <tr>
-                                        <th width="30%" style="text-align: center;">Product</th>
-                                        <th width="20%" style="text-align: center;">Price</th>
-                                        <th width="20%" style="text-align: center;">Qty.</th>
-                                        <th width="20%" style="text-align: center;">Total</th>
-                                        <th width="10%" style="text-align: center;">Remove</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if (Model.Count > 0)
-                                    {
-                                    foreach (var cart in Model)
-                                    {
+
+                                @if (Model.Count > 0)
+        {
+                        <table class="table table-striped" style="text-align: center;">
+                            <thead>
                                 <tr>
-                                    <td>
-                                        <img src="~/assets/images/hinh_mon_an/@cart.food.image" width="250px">
-                                        <p><br><b>@cart.food.name</b></p>
-                                    </td>
-                                    <td>@cart.food.price</td>
-                                    <td>
-                                        <!--<select name="product-qty" id="product-qty" class="form-control" width="50">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>-->
-                                        <input type="text" class="quantity" value="@cart.quantity"/>
-                                    </td>
-                                    <td>@(cart.food.price * cart.quantity)</td>
-                                    <td><a href="#" class="remove" title="Remove this item"><i class="fa fa-trash-o fa-2x"></i></a></td>
+                                    <th width="30%" style="text-align: center;">Product</th>
+                                    <th width="20%" style="text-align: center;">Price</th>
+                                    <th width="20%" style="text-align: center;">Qty.</th>
+                                    <th width="20%" style="text-align: center;">Total</th>
+                                    <th width="10%" style="text-align: center;">Remove</th>
                                 </tr>
+                            </thead>
+                            <tbody>
 
-                                    }
+                                @foreach (var cart in Model)
+        {
+                        <tr>
+                            <td>
+                                <img src="~/assets/images/hinh_mon_an/@cart.food.image" width="250px">
+                                <p><br><b>@cart.food.name</b></p>
+                            </td>
+                            <td>@cart.food.price.ToString("N0")</td>
+                            <td>
+                                <!--<select name="product-qty" id="product-qty" class="form-control" width="50">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>-->
+                                <input type="text" class="txtquantity" data-id="@cart.food.id" value="@cart.quantity" />
+                            </td>
+                            <td>@((cart.food.price * cart.quantity).ToString("N0"))</td>
+                            <td><button id="Remove" title="Remove this item"><i class="fa fa-trash-o fa-2x"></i></button></td>
+                        </tr>
 
-                                    }
-                                    else{ 
-                                    
-                                    <p><span class="alert alert-danger">No Food In Cart</span></p>
-                                    }
-                                </tbody>
-                            </table>
+}
 
+
+
+                            </tbody>
+                        </table>
+}
+                                else
+        {
+
+                        <p><span class="alert alert-danger">No Food In Cart</span></p>
+}
+                            
+                            <button id="btnContinue" class="swin-btn center form-submit">Tiếp tục mua hàng</button>
+                            <button id="btnUpdate" class="swin-btn center form-submit">Cập Nhật Giỏ Hàng</button>
+                            <button id="btnRemove" class="swin-btn center form-submit">Xóa Giỏ Hàng</button>
                         </div>
 
                         <div class="swin-sc swin-sc-contact-form light mtl style-full">
@@ -160,4 +168,69 @@
         </section>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $("#btnContinue").click(function () {
+            window.location.href = "/";
+        });
+        $("#btnUpdate").click(function () {
+            var listFoods = $('.txtquantity');
+            var cartlist = [];
+            $.each(listFoods, function (i, foods) {
+                cartlist.push({
+                    quantity: $(foods).val(),
+                    food: {
+                        id: $(foods).data('id'),
+                    }
+                });
+            });
+            $.ajax({
+                url: '/Cart/Remove',
+                data: { cartModel: JSON.stringify(cartlist) },
+                dataType: 'json',
+                type: 'POST',
+                success: function (res) {
+                    if (res.status == true) {
+                        window.location.href = "/Cart"
+                    }
+                }
+            });
+        });
+        $("#btnRemove").click(function () {
+           
+            $.ajax({
+                url: '/Cart/DeleteAll',
+                dataType: 'json',
+                type: 'POST',
+                success: function (res) {
+                    if (res.status == true) {
+                        window.location.href = "/Cart"
+                    }
+                }
+            });
+        });
+        //$("#Remove").click(function () {
+        //    var listFoods = $('.txtquantity');
+        //    var cartlist = [];
+        //    $.each(listFoods, function (i, foods) {
+        //        cartlist.push({
+        //            food: {
+        //                id: $(foods).data('id'),
+        //            }
+        //        });
+        //    });
+        //    $.ajax({
+        //        url: '/Cart/Remove',
+        //        data: { cartModel: JSON.stringify(cartlist) },
+        //        dataType: 'json',
+        //        type: 'POST',
+        //        success: function (res) {
+        //            if (res.status == true) {
+        //                window.location.href = "/Cart"
+        //            }
+        //        }
+        //    });
+        //});
+    });
+</script>
 
