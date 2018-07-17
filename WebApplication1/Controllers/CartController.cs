@@ -48,16 +48,33 @@ namespace WebApplication1.Controllers
                 status = true
             });
         }
-        //public JsonResult Remove(string cartModel)
-        //{
-        //    var jsoncart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
-        //    var sessioncart = (List<CartItem>)Session[CartSession];
-        //    int index = sessioncart.Remove(jsoncart);
-        //    return Json(new
-        //    {
-        //        status = true
-        //    });
-        //}
+        public ActionResult Remove(int id)
+        {
+            
+            food foods = db.foods.SingleOrDefault(x => x.id == id);
+            var sessioncart = (List<CartItem>)Session[CartSession];
+            var foodincart = sessioncart.SingleOrDefault(x => x.food.id == id);
+            if (foodincart !=null)
+            {
+                sessioncart.RemoveAll(x => x.food.id == id);
+            }
+            //var jsoncart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
+            //var sessioncart = (List<CartItem>)Session[CartSession];
+            //foreach (var item in sessioncart)
+            //{
+            //    var jsonitem = jsoncart.SingleOrDefault(x => x.food.id == item.food.id);
+            //    if (jsonitem!=null)
+            //    {
+            //        sessioncart.RemoveAll(x => x.food.id == jsonitem.food.id);
+            //    }
+
+            //}
+            //return Json(new
+            //{
+            //    status = true
+            //});
+            return RedirectToAction("Index");
+        }
         public ActionResult AddItem(int id,int quantity)
         {
             var fooddetail = db.foods.Where(x => x.id == id).SingleOrDefault();
