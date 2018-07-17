@@ -9,7 +9,7 @@ namespace WebApplication1.Controllers
     public class FoodDetailController : Controller
     {
         // GET: FoodDetail
-        projectEntities db = new projectEntities();
+        project2Entities db = new project2Entities();
         public ActionResult Index(int id)
         {
             var fooddetail = db.foods.Where(x => x.id == id).ToList();

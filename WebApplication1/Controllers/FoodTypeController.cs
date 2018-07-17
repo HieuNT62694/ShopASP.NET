@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     public class FoodTypeController : Controller
     {
         // GET: FoodType
-        projectEntities db = new projectEntities();
+        project2Entities db = new project2Entities();
         public ActionResult Index()
         {
             var lisfoodtype = db.food_type.ToList();

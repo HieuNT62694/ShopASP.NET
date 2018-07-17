@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="project2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bill_detail">
+    <Key>
+      <PropertyRef Name="id_bill" />
+      <PropertyRef Name="id_food" />
+    </Key>
+    <Property Name="id_bill" Type="Int32" Nullable="false" />
+    <Property Name="id_food" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <NavigationProperty Name="bill" Relationship="Self.FK_bill_detail_bills" FromRole="bill_detail" ToRole="bills" />
+    <NavigationProperty Name="food" Relationship="Self.FK_bill_detail_foods" FromRole="bill_detail" ToRole="foods" />
+  </EntityType>
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_customer" Type="Int32" Nullable="false" />
+    <Property Name="date_order" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="total" Type="Double" Nullable="false" />
+    <Property Name="deposit" Type="Double" Nullable="false" />
+    <Property Name="unpaid" Type="Double" Nullable="false" />
+    <Property Name="payment_method" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="bill_detail" Relationship="Self.FK_bill_detail_bills" FromRole="bills" ToRole="bill_detail" />
+    <NavigationProperty Name="customer" Relationship="Self.FK_bills_customers" FromRole="bills" ToRole="customers" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="bills" Relationship="Self.FK_bills_customers" FromRole="customers" ToRole="bills" />
+  </EntityType>
+  <EntityType Name="food_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="foods" Relationship="Self.FK_foods_food_type" FromRole="food_type" ToRole="foods" />
+  </EntityType>
+  <EntityType Name="food">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_type" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="summary" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="detail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <Property Name="promotion_price" Type="Double" Nullable="false" />
+    <Property Name="promotion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="update_at" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="today" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="bill_detail" Relationship="Self.FK_bill_detail_foods" FromRole="foods" ToRole="bill_detail" />
+    <NavigationProperty Name="food_type" Relationship="Self.FK_foods_food_type" FromRole="foods" ToRole="food_type" />
+    <NavigationProperty Name="menu_detail" Relationship="Self.FK_menu_detail_foods" FromRole="foods" ToRole="menu_detail" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <Property Name="promotion_price" Type="Double" Nullable="false" />
+    <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="menu_detail" Relationship="Self.FK_menu_detail_menu" FromRole="menu" ToRole="menu_detail" />
+  </EntityType>
+  <EntityType Name="menu_detail">
+    <Key>
+      <PropertyRef Name="id_menu" />
+      <PropertyRef Name="id_food" />
+    </Key>
+    <Property Name="id_menu" Type="Int32" Nullable="false" />
+    <Property Name="id_food" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="food" Relationship="Self.FK_menu_detail_foods" FromRole="menu_detail" ToRole="foods" />
+    <NavigationProperty Name="menu" Relationship="Self.FK_menu_detail_menu" FromRole="menu_detail" ToRole="menu" />
+  </EntityType>
+  <EntityType Name="role_resource">
+    <Key>
+      <PropertyRef Name="role" />
+      <PropertyRef Name="resource" />
+    </Key>
+    <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="resource" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="allow" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="birthdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="role" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_bill_detail_bills">
+    <End Role="bills" Type="Self.bill" Multiplicity="1" />
+    <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bills">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bill_detail">
+        <PropertyRef Name="id_bill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bill_detail_foods">
+    <End Role="foods" Type="Self.food" Multiplicity="1" />
+    <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="foods">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bill_detail">
+        <PropertyRef Name="id_food" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bills_customers">
+    <End Role="customers" Type="Self.customer" Multiplicity="1" />
+    <End Role="bills" Type="Self.bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bills">
+        <PropertyRef Name="id_customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_foods_food_type">
+    <End Role="food_type" Type="Self.food_type" Multiplicity="1" />
+    <End Role="foods" Type="Self.food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="food_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="foods">
+        <PropertyRef Name="id_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_menu_detail_foods">
+    <End Role="foods" Type="Self.food" Multiplicity="1" />
+    <End Role="menu_detail" Type="Self.menu_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="foods">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="menu_detail">
+        <PropertyRef Name="id_food" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_menu_detail_menu">
+    <End Role="menu" Type="Self.menu" Multiplicity="1" />
+    <End Role="menu_detail" Type="Self.menu_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="menu_detail">
+        <PropertyRef Name="id_menu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="project2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bill_detail" EntityType="Self.bill_detail" />
+    <EntitySet Name="bills" EntityType="Self.bill" />
+    <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="food_type" EntityType="Self.food_type" />
+    <EntitySet Name="foods" EntityType="Self.food" />
+    <EntitySet Name="menus" EntityType="Self.menu" />
+    <EntitySet Name="menu_detail" EntityType="Self.menu_detail" />
+    <EntitySet Name="role_resource" EntityType="Self.role_resource" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_bill_detail_bills" Association="Self.FK_bill_detail_bills">
+      <End Role="bills" EntitySet="bills" />
+      <End Role="bill_detail" EntitySet="bill_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bill_detail_foods" Association="Self.FK_bill_detail_foods">
+      <End Role="foods" EntitySet="foods" />
+      <End Role="bill_detail" EntitySet="bill_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bills_customers" Association="Self.FK_bills_customers">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="bills" EntitySet="bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_foods_food_type" Association="Self.FK_foods_food_type">
+      <End Role="food_type" EntitySet="food_type" />
+      <End Role="foods" EntitySet="foods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_menu_detail_foods" Association="Self.FK_menu_detail_foods">
+      <End Role="foods" EntitySet="foods" />
+      <End Role="menu_detail" EntitySet="menu_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_menu_detail_menu" Association="Self.FK_menu_detail_menu">
+      <End Role="menu" EntitySet="menus" />
+      <End Role="menu_detail" EntitySet="menu_detail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

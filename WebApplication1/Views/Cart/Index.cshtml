@@ -53,7 +53,7 @@
                                 
                             </td>
                             <td>@((cart.food.price * cart.quantity).ToString("N0"))</td>
-                            <td><a href="@Url.Action("Remove", "Cart", new{@id = cart.food.id})" id="btnRemoveItem" title="Remove this item"><i class="fa fa-trash-o fa-2x"></i></a></td>
+                            <td><a href="#" data-id="@cart.food.id" class="btnRemoveItem" title="Remove this item"><i class="fa fa-trash-o fa-2x"></i></a></td>
                         </tr>
 
 }
@@ -79,43 +79,44 @@ else
                             <div class="swin-sc swin-sc-title style-2">
                                 <h3 class="title"><span>Đặt hàng</span></h3>
                             </div>
-                            <form>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                        <input type="text" placeholder="Fullname" class="form-control">
-                                    </div>
+                            @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+    {
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                <input type="text" placeholder="Fullname" name="fullname" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                <input type="text" placeholder="Email" name="email" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <div class="fa fa-map-marker"></div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                                        <input type="text" placeholder="Email" class="form-control">
-                                    </div>
+                                <input type="text" placeholder="Address" name="address" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <div class="fa fa-phone"></div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <div class="fa fa-map-marker"></div>
-                                        </div>
-                                        <input type="text" placeholder="Address" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <div class="fa fa-phone"></div>
-                                        </div>
-                                        <input type="text" placeholder="Phone" class="form-control">
-                                    </div>
-                                </div>
+                                <input type="text" placeholder="Phone" name="phone" class="form-control">
+                            </div>
+                        </div>
 
-                                <div class="form-group">
-                                    <textarea placeholder="Message" class="form-control"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <div class="swin-btn-wrap center"><a href="#" class="swin-btn center form-submit"> <span>Checkout</span></a></div>
-                                </div>
-                            </form>
+                        <div class="form-group">
+                            <textarea placeholder="Message" name="message" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="swin-btn-wrap center"><button type="submit" class="swin-btn center form-submit"> <span>Checkout</span></button></div>
+                        </div>
+}
                         </div>
                     </div>
                 </div>
@@ -196,6 +197,20 @@ else
            
             $.ajax({
                 url: '/Cart/DeleteAll',
+                dataType: 'json',
+                type: 'POST',
+                success: function (res) {
+                    if (res.status == true) {
+                        window.location.href = "/Cart"
+                    }
+                }
+            });
+        });
+        $(".btnRemoveItem").click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                data: { id: $(this).data('id') },
+                url: '/Cart/Remove',
                 dataType: 'json',
                 type: 'POST',
                 success: function (res) {

@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     public class ThucDonController : Controller
     {
         // GET: ThucDon
-        projectEntities db = new projectEntities();
+        project2Entities db = new project2Entities();
         public ActionResult Index(int id = 1)
         {
             var menusession = new MenuView();

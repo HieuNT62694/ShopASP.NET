@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="projectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="project2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="bill_detail">
           <Key>
             <PropertyRef Name="id_bill" />
@@ -19,7 +19,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_customer" Type="int" Nullable="false" />
           <Property Name="date_order" Type="date" Nullable="false" />
           <Property Name="total" Type="float" Nullable="false" />
@@ -32,7 +32,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="gender" Type="nvarchar" MaxLength="10" />
           <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -44,7 +44,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="description" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="image" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -53,7 +53,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_type" Type="int" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="summary" Type="nvarchar" MaxLength="200" Nullable="false" />
@@ -70,7 +70,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="price" Type="float" Nullable="false" />
           <Property Name="promotion_price" Type="float" Nullable="false" />
@@ -109,7 +109,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="username" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="fullname" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -192,7 +192,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="projectModelStoreContainer">
+        <EntityContainer Name="project2ModelStoreContainer">
           <EntitySet Name="bill_detail" EntityType="Self.bill_detail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bills" EntityType="Self.bills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
@@ -232,7 +232,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="project2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="bill_detail">
           <Key>
             <PropertyRef Name="id_bill" />
@@ -249,7 +249,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_customer" Type="Int32" Nullable="false" />
           <Property Name="date_order" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="total" Type="Double" Nullable="false" />
@@ -264,7 +264,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -277,7 +277,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
@@ -287,7 +287,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_type" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="summary" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
@@ -307,7 +307,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="price" Type="Double" Nullable="false" />
           <Property Name="promotion_price" Type="Double" Nullable="false" />
@@ -349,7 +349,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="fullname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
@@ -432,7 +432,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="projectEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="project2Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="bill_detail" EntityType="Self.bill_detail" />
           <EntitySet Name="bills" EntityType="Self.bill" />
           <EntitySet Name="customers" EntityType="Self.customer" />
@@ -473,9 +473,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="projectModelStoreContainer" CdmEntityContainer="projectEntities">
+        <EntityContainerMapping StorageEntityContainer="project2ModelStoreContainer" CdmEntityContainer="project2Entities">
           <EntitySetMapping Name="bill_detail">
-            <EntityTypeMapping TypeName="projectModel.bill_detail">
+            <EntityTypeMapping TypeName="project2Model.bill_detail">
               <MappingFragment StoreEntitySet="bill_detail">
                 <ScalarProperty Name="id_bill" ColumnName="id_bill" />
                 <ScalarProperty Name="id_food" ColumnName="id_food" />
@@ -485,7 +485,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="bills">
-            <EntityTypeMapping TypeName="projectModel.bill">
+            <EntityTypeMapping TypeName="project2Model.bill">
               <MappingFragment StoreEntitySet="bills">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_customer" ColumnName="id_customer" />
@@ -499,7 +499,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="customers">
-            <EntityTypeMapping TypeName="projectModel.customer">
+            <EntityTypeMapping TypeName="project2Model.customer">
               <MappingFragment StoreEntitySet="customers">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -512,7 +512,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="food_type">
-            <EntityTypeMapping TypeName="projectModel.food_type">
+            <EntityTypeMapping TypeName="project2Model.food_type">
               <MappingFragment StoreEntitySet="food_type">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -522,7 +522,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="foods">
-            <EntityTypeMapping TypeName="projectModel.food">
+            <EntityTypeMapping TypeName="project2Model.food">
               <MappingFragment StoreEntitySet="foods">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_type" ColumnName="id_type" />
@@ -540,7 +540,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="menus">
-            <EntityTypeMapping TypeName="projectModel.menu">
+            <EntityTypeMapping TypeName="project2Model.menu">
               <MappingFragment StoreEntitySet="menu">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -552,7 +552,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="menu_detail">
-            <EntityTypeMapping TypeName="projectModel.menu_detail">
+            <EntityTypeMapping TypeName="project2Model.menu_detail">
               <MappingFragment StoreEntitySet="menu_detail">
                 <ScalarProperty Name="id_menu" ColumnName="id_menu" />
                 <ScalarProperty Name="id_food" ColumnName="id_food" />
@@ -561,7 +561,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="role_resource">
-            <EntityTypeMapping TypeName="projectModel.role_resource">
+            <EntityTypeMapping TypeName="project2Model.role_resource">
               <MappingFragment StoreEntitySet="role_resource">
                 <ScalarProperty Name="role" ColumnName="role" />
                 <ScalarProperty Name="resource" ColumnName="resource" />
@@ -570,7 +570,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="projectModel.sysdiagram">
+            <EntityTypeMapping TypeName="project2Model.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -581,7 +581,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="projectModel.user">
+            <EntityTypeMapping TypeName="project2Model.user">
               <MappingFragment StoreEntitySet="users">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="username" ColumnName="username" />

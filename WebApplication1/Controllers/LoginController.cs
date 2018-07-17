@@ -5,7 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Common;
 using WebApplication1.Models;
+using WebApplication1.Models.DAO;
 
 namespace WebApplication1.Controllers
 {
@@ -13,43 +15,43 @@ namespace WebApplication1.Controllers
     public class LoginController : Controller
     {
         // GET: Login
-        projectEntities db = new projectEntities();
+        project2Entities db = new project2Entities();
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult CheckLogin(string username, string password)
+        public ActionResult CheckLogin(LoginModel model)
         {
-           
-            var newpasswrod = GetMD5(password);
-            var model = db.users.FirstOrDefault(x => x.username == username || x.password == newpasswrod);
-            if (model != null)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Index", "Admin",new {area = "Admin" });
+                var dao = new UserDAO();
+                var result = dao.checklogin(model.UserName, model.Password);
+                if (result == 1)
+                {
+                    var user = dao.GetUserById(model.UserName);
+                    var usersession = new UserLogin();
+                    usersession.UserName = user.username;
+                    usersession.UserId = user.id;
+                    Session.Add(CommonConstrants.USER_SESSION, usersession);
+                    return RedirectToAction("Index", "Admin", new { area = "Admin" });
+                }
+                else if(result == 0)
+                {
+                    ModelState.AddModelError("", "Tài Khoản Không Tồn Tại");
+                }
+                else if (result == 2)
+                {
+                    ModelState.AddModelError("", "Mật Khẩu Không Đúng");
+                }
+                else if (result == 2)
+                {
+                    ModelState.AddModelError("", "Đăng nhập không đúng");
+                }
             }
-            else
-            {
-               return  RedirectToAction("Index", "Login");
-            }
+            return View("Index");
+            
+
         }
-        public static string GetMD5(string str)
-        {
-
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-
-            byte[] bHash = md5.ComputeHash(Encoding.UTF8.GetBytes(str));
-
-            StringBuilder sbHash = new StringBuilder();
-
-            foreach (byte b in bHash)
-            {
-
-                sbHash.Append(String.Format("{0:x2}", b));
-
-            }
-
-            return sbHash.ToString();
-
-        }
+       
     }
 }

@@ -6,8 +6,9 @@ using System.Web.Mvc;
 
 namespace WebApplication1.Areas.Admin.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
+
         // GET: Admin/Home
         public ActionResult Index()
         {

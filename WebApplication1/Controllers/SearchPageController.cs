@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     public class SearchPageController : Controller
     {
         // GET: SearchPage
-        projectEntities db = new projectEntities();
+        project2Entities db = new project2Entities();
         public ActionResult Index(string searchString,int page = 1, int pagesize = 9)
         {
             var listFood = listAllPaging(searchString,page, pagesize);

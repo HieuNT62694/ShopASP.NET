@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using WebApplication1.Models;
+using WebApplication1.Models.DAO;
 
 namespace WebApplication1.Controllers
 {
     public class CartController : Controller
     {
-        projectEntities db = new projectEntities();
+        project2Entities db = new project2Entities();
         private const string CartSession = "CartSession"; 
         // GET: Cart
         public ActionResult Index()
@@ -48,32 +49,17 @@ namespace WebApplication1.Controllers
                 status = true
             });
         }
-        public ActionResult Remove(int id)
+        public JsonResult Remove(int id)
         {
             
-            food foods = db.foods.SingleOrDefault(x => x.id == id);
             var sessioncart = (List<CartItem>)Session[CartSession];
-            var foodincart = sessioncart.SingleOrDefault(x => x.food.id == id);
-            if (foodincart !=null)
-            {
                 sessioncart.RemoveAll(x => x.food.id == id);
-            }
-            //var jsoncart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
-            //var sessioncart = (List<CartItem>)Session[CartSession];
-            //foreach (var item in sessioncart)
-            //{
-            //    var jsonitem = jsoncart.SingleOrDefault(x => x.food.id == item.food.id);
-            //    if (jsonitem!=null)
-            //    {
-            //        sessioncart.RemoveAll(x => x.food.id == jsonitem.food.id);
-            //    }
-
-            //}
-            //return Json(new
-            //{
-            //    status = true
-            //});
-            return RedirectToAction("Index");
+            Session[CartSession] = sessioncart;
+            return Json(new
+            {
+                status = true
+            });
+            
         }
         public ActionResult AddItem(int id,int quantity)
         {
@@ -114,63 +100,53 @@ namespace WebApplication1.Controllers
             }
             return RedirectToAction("Index");
         }
-        //public ActionResult getAllIdFoodInMenu(int id)
-        //{
-        //    var id = db.
-        //}
-        //public ActionResult AddAllFoodInMenu(int id, int quantity)
-        //{
-        //    var menu = from f in db.foods
-        //                           join md in db.menu_detail
-        //                           on f.id equals md.id_food
-        //                           join m in db.menus
-        //                           on md.id_menu equals m.id
-        //                           where md.id_menu == id
-        //                           select new MenuView()
-        //                           {
-        //                               menuName = m.name,
-        //                               image = m.image,
-        //                               foodName = f.name,
-        //                               price = f.price,
-        //                               sumary = f.summary,
-        //                               id = m.id
-        //                           };
-        //    var fooddetail = menu.SingleOrDefault();
-        //    var cart = Session[CartSession];
-        //    if (cart != null)
-        //    {
-        //        var list = (List<CartItem>)cart;
-        //        if (list.Exists(x => x.food.id == id))
-        //        {
-        //            foreach (var item in list)
-        //            {
-        //                if (item.food.id == id)
-        //                {
-        //                    item.quantity += quantity;
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            //tạo mới đối tượng cart item
-        //            var item = new CartItem();
-        //            item.food = fooddetail;
-        //            item.quantity = quantity;
-        //            list.Add(item);
-        //        }
 
-        //    }
-        //    else
-        //    {
-        //        //tạo mới đối tượng cart item
-        //        var item = new CartItem();
-        //        item.food = fooddetail;
-        //        item.quantity = quantity;
-        //        var list = new List<CartItem>();
-        //        list.Add(item);
-        //        Session[CartSession] = list;
-        //    }
-        //    return RedirectToAction("Index");
-        //}
+        public ActionResult Payment(string fullname,string email,string address,string phone,string message)
+        {
+            var customer = new customer();
+            customer.name = fullname;
+            customer.email = email;
+            customer.address = address;
+            customer.phone = phone;
+            customer.note = message;
+
+            try
+            {
+                var cart = (List<CartItem>)Session[CartSession];
+                var id = new CustomerDAO().Insert(customer);
+                var bills = new bill();
+                bills.id_customer = id;
+                bills.date_order = DateTime.Now;
+                double total = 0;
+                foreach (var item in cart)
+                {
+                    total =total + (item.food.price * item.quantity);
+                }
+                bills.total = total;
+                bills.note = message;
+                bills.payment_method = "Tiền Mặt";
+                bills.deposit = total;
+                bills.unpaid = 0;
+                var idbill = new BillDAO().Insert(bills);
+                
+                var billdetaildao = new BillDetailDAO();
+                foreach (var item in cart)
+                {
+                    var detail = new bill_detail();
+                    detail.id_bill = idbill;
+                    detail.id_food = item.food.id;
+                    detail.quantity = item.quantity;
+                    detail.price = item.food.price;
+                    billdetaildao.Insert(detail);
+                }
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+
+            return Redirect("/");
+        }
+
     }
 }
