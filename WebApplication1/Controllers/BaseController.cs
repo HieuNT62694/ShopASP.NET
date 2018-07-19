@@ -6,11 +6,10 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using WebApplication1.Common;
 
-namespace WebApplication1.Areas.Admin.Controllers
+namespace WebApplication1.Controllers
 {
     public class BaseController : Controller
     {
-        // GET: Admin/Base
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var sess = (UserLogin)Session[CommonConstrants.ADMIN_SESSION];
@@ -18,6 +17,7 @@ namespace WebApplication1.Areas.Admin.Controllers
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Invalid", action = "Index" }));
             }
+            base.OnActionExecuting(filterContext);
             base.OnActionExecuting(filterContext);
         }
     }

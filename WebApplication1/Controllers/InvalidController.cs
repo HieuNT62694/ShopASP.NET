@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebApplication1.Areas.Admin.Controllers
+namespace WebApplication1.Controllers
 {
     public class InvalidController : Controller
     {
-        // GET: Admin/Invalid
+        // GET: Invalid
         public ActionResult Index()
         {
             return View();

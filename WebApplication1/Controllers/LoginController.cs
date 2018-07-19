@@ -33,7 +33,7 @@ namespace WebApplication1.Controllers
                     usersession.UserName = user.username;
                     usersession.UserId = user.id;
                     Session.Add(CommonConstrants.ADMIN_SESSION, usersession);
-                    return RedirectToAction("Index", "Admin", new { area = "Admin" });
+                    return RedirectToAction("Index", "Admin");
                 }else if(result == 3){
                     var user = dao.GetUserById(model.UserName);
                     var usersession = new UserLogin();

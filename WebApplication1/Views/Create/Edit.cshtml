@@ -1,0 +1,128 @@
+﻿
+@model WebApplication1.Models.AddFoodModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Layout/LayoutAdmin.cshtml";
+}
+
+<div class="banner-bottom">
+    <div class="container">
+        <!-- news-and-events -->
+        <div class="row carousel-holder">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <h2>Create Food</h2>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("Edit", "Create", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+                    @Html.ValidationSummary(false, "", new { @class = " text-danger" });
+                    @Html.HiddenFor(model => model.Id)
+                    <div>
+                        <label>Name</label>
+
+
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "FullName" })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <br>
+                    <div>
+                        <label>Type</label>
+
+                        @Html.DropDownList("Type")
+                        @*@Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placeholder = "Username" })
+        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })*@
+                    </div>
+                    <br />
+                    <div>
+                        <label>Menu</label>
+                        @Html.DropDownList("Menu")
+                        @*@Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email" })
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
+                    </div>
+                    <br />
+                    <div>
+                        <label>Price</label>
+                        @Html.TextBoxFor(model => model.Price, new { @class = "form-control", @placeholder = "Price" })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </div>
+                    <br>
+                    <div>
+                        <label>Promotion Price</label>
+                        @Html.TextBoxFor(model => model.ProPrice, new { @class = "form-control", @placeholder = "Promotion Price" })
+                        @Html.ValidationMessageFor(model => model.ProPrice, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div>
+                        <label>Promotion</label>
+                        @Html.TextBoxFor(model => model.Promotion, new { @class = "form-control", @placeholder = "Promotion" })
+                        @Html.ValidationMessageFor(model => model.Promotion, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div>
+                        <label>Summary</label>
+                        @Html.TextBoxFor(model => model.Summary, new { @class = "form-control", @placeholder = "Summary" })
+                        @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        <label>Detail</label>
+                        @Html.TextBoxFor(model => model.Detail, new { @class = "form-control", @placeholder = "Detail" })
+                        @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                    </div>
+                    <br>
+                    <div>
+                        <label>Unit</label>
+                        @Html.TextBoxFor(model => model.Unit, new { @class = "form-control", @placeholder = "Unit" })
+                        @Html.ValidationMessageFor(model => model.Unit, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+
+                    <div>
+                        <label>Image</label>
+                        <input type="file" name="imageUpload" onchange="showMyImage(this)" accept="image/*" value="@Model.Image" />
+                        @*<font style="color:red"> @ViewBag.message</font>*@
+                    </div>
+                    <div>
+                        <img style="width: 200px" id="thumbnil" src="~/assets/images/hinh_mon_an/@Model.Image">
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-success">
+                        Submit
+                    </button>
+}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- //news-and-events -->
+    </div>
+</div>
+<script>
+
+    function showMyImage(fileInput) {
+        var files = fileInput.files;
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var imageType = /image.*/;
+            if (!file.type.match(imageType)) {
+                continue;
+            }
+            var img = document.getElementById("thumbnil");
+            img.file = file;
+            var reader = new FileReader();
+            reader.onload = (function (aImg) {
+                return function (e) {
+                    aImg.src = e.target.result;
+                };
+            })(img);
+            reader.readAsDataURL(file);
+        }
+    }
+
+</script>
+
