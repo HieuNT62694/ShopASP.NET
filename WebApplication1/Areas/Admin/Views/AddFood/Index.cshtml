@@ -1,0 +1,109 @@
+﻿@using WebApplication1.Areas.Admin.Models;
+@model AddFoodModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/LayoutAdmin.cshtml";
+}
+
+link href="~/public/assets/vendors/style.css" rel="stylesheet" />
+<div data-bottom-top="background-position: 50% 50px;" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -50px;" class="page-title page-menu">
+    <div class="container">
+        <div class="title-wrapper">
+            <div data-top="transform: translateY(0px);opacity:1;" data--20-top="transform: translateY(-5px);" data--50-top="transform: translateY(-15px);opacity:0.8;" data--120-top="transform: translateY(-30px);opacity:0;" data-anchor-target=".page-title" class="title">Signup</div>
+            <div data-top="opacity:1;" data--120-top="opacity:0;" data-anchor-target=".page-title" class="divider"><span class="line-before"></span><span class="dot"></span><span class="line-after"></span></div>
+            <div data-top="transform: translateY(0px);opacity:1;" data--20-top="transform: translateY(5px);" data--50-top="transform: translateY(15px);opacity:0.8;" data--120-top="transform: translateY(30px);opacity:0;" data-anchor-target=".page-title" class="subtitle">The various dishes are waiting for your coming to enjoy its</div>
+        </div>
+    </div>
+</div>
+<div class="banner-bottom">
+    <div class="container">
+        <!-- news-and-events -->
+        <div class="row carousel-holder">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <h2>Sign up</h2>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("Add", "AddFood", FormMethod.Post))
+                        {
+                            if (ViewBag.Success != null)
+                            {
+                                <div class="alert alert-success">@ViewBag.Success</div>
+                            }
+                            @Html.ValidationSummary(false, "", new { @class = " text-danger" });
+
+                            <div>
+                                <label>Name</label>
+
+
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "FullName" })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                            <br>
+                            <div>
+                                <label>IdType</label>
+
+                                @Html.TextBoxFor(model => model.Id_Type, new { @class = "form-control", @placeholder = "Username" })
+                                @Html.ValidationMessageFor(model => model.Id_Type, "", new { @class = "text-danger" })
+                            </div>
+                            <br />
+                            <div>
+                                <label>Summary</label>
+                                <div class="title-wrapper">
+                                    @Html.TextBoxFor(model => model.Summary, new { @class = "form-control", @placeholder = "Email" })
+                                    @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+                                </div>
+                                <br />
+                                <div>
+                                    <label>Detail</label>
+                                    @Html.TextBoxFor(model => model.Detail, new { @class = "form-control", @placeholder = "Address" })
+                                    @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                                </div>
+                                <br>
+                                <div>
+                                    <label>Price</label>
+                                    @Html.TextBoxFor(model => model.Price, new { @class = "form-control", @placeholder = "Phone" })
+                                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                                </div>
+                                <br />
+                                <div>
+                                    <label>Promotin Price</label>
+                                    @Html.TextBoxFor(model => model.ProPrice, new { @class = "form-control", @placeholder = "Birth Date" })
+                                    @Html.ValidationMessageFor(model => model.ProPrice, "", new { @class = "text-danger" })
+                                </div>
+                                <br />
+                                <div>
+                                    <label>Promotion</label>
+                                    @Html.PasswordFor(model => model.Promotion, new { @class = "form-control", @placeholder = "Password" })
+                                    @Html.ValidationMessageFor(model => model.Promotion, "", new { @class = "text-danger" })
+                                </div>
+                                <br>
+                                <div>
+                                    <label>Unit</label>
+
+                                    @Html.PasswordFor(model => model.Unit, new { @class = "form-control", @placeholder = "Password" })
+                                    @Html.ValidationMessageFor(model => model.Unit, "", new { @class = "text-danger" })
+                                </div>
+                                <div>
+                                    <label>Today</label>
+
+                                    @Html.PasswordFor(model => model.Today, new { @class = "form-control", @placeholder = "Password" })
+                                    @Html.ValidationMessageFor(model => model.Today, "", new { @class = "text-danger" })
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-success">
+                                    Submit
+                                </button>
+                                }
+                            </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- //news-and-events -->
+    </div>
+</div>
+

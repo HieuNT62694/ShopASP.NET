@@ -22,33 +22,34 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <h2>Login</h2>
-                    <div class="panel-body">
-                        @using (Html.BeginForm("CheckLogin", "Login",FormMethod.Post))
-                        {
 
-                            @Html.ValidationSummary(false, "",new { @class = " text-danger" });
-                    <div>
-                        <label>Username</label>
-                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control",@autofocus = "autofocus" })
-                    </div>
-                    <br>
-                    <div>
-                        <label>Password</label>
-                        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
-                    </div>
-                    <br>
-                            <div class="checkbox">
-                                <label>
-                                    @Html.CheckBoxFor(model => model.Remember) Remember Me
-                                </label>
+                        <div class="panel-body">
+                            @using (Html.BeginForm("CheckLogin", "Login", FormMethod.Post))
+    {
 
-                            </div>
-                    <button type="submit" class="btn btn-success">
-                        Submit
-                    </button>
-                    @Html.ActionLink("Signup", "Index", "Signup")
+                        @Html.ValidationSummary(false, "", new { @class = " text-danger" });
+                        <div>
+                            <label>Username</label>
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @autofocus = "autofocus" })
+                        </div>
+                        <br>
+                        <div>
+                            <label>Password</label>
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                        </div>
+                        <br>
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBoxFor(model => model.Remember) Remember Me
+                            </label>
+
+                        </div>
+                        <button type="submit" class="btn btn-success">
+                            Submit
+                        </button>
+                        @Html.ActionLink("Signup", "Index", "Signup")
 }
-                    </div>
+                        </div>
                 </div>
             </div>
             <div class="col-md-4"></div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BotDetect.Web.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,7 @@ namespace WebApplication1.Controllers
         // GET: Cart
         public ActionResult Index()
         {
+           
             var cart = Session[CartSession];
             var list = new List<CartItem>();
             if (cart!=null)
@@ -100,10 +102,27 @@ namespace WebApplication1.Controllers
             }
             return RedirectToAction("Index");
         }
-
-        public ActionResult Payment(string fullname,string email,string address,string phone,string message)
+        public ActionResult AddIteminMenu(int id, int quantity)
         {
-            var customer = new customer();
+            var dao = new FoodDAO();
+            var listid = dao.getAllFoodInMenu(id);
+            foreach(var foodid in listid)
+            {
+                
+                AddItem(foodid.foodid, 1);
+            }
+            return RedirectToAction("Index");
+        }
+        [CaptchaValidation("CaptchaCode", "cartCaptcha", "Mã Xác nhận Không Đúng")]
+        public ActionResult Payment(string fullname, string email, string address, string phone, string message)
+        {
+
+            if (ModelState.IsValid) { 
+                if (String.IsNullOrEmpty(message))
+                {
+                    message = "Normal";
+                }
+                var customer = new customer();
             customer.name = fullname;
             customer.email = email;
             customer.address = address;
@@ -120,15 +139,15 @@ namespace WebApplication1.Controllers
                 double total = 0;
                 foreach (var item in cart)
                 {
-                    total =total + (item.food.price * item.quantity);
+                    total = total + (item.food.price * item.quantity);
                 }
                 bills.total = total;
-                bills.note = message;
+                bills.note = "Chưa Giao";
                 bills.payment_method = "Tiền Mặt";
                 bills.deposit = total;
                 bills.unpaid = 0;
                 var idbill = new BillDAO().Insert(bills);
-                
+
                 var billdetaildao = new BillDetailDAO();
                 foreach (var item in cart)
                 {
@@ -140,13 +159,19 @@ namespace WebApplication1.Controllers
                     billdetaildao.Insert(detail);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }
-
-            return Redirect("/");
+            Session[CartSession] = null;
+            return RedirectToAction("Index", controllerName: "Success");
+            }
+            else
+            {
+                
+                ModelState.AddModelError("", "Mã Xác nhận Không Đúng");
+                return View("Index",Session[CartSession]);
+            }
         }
-
     }
 }

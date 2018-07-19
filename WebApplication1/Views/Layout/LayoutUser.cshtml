@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using WebApplication1.Models;
+@using WebApplication1.Common;
+
+<!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <!-- Mirrored from swin-themes.com/html/fooday/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Sep 2017 09:09:44 GMT -->
@@ -70,6 +73,19 @@
                                 <di class="item">
                                     <div class="wg-social"><a href="@Url.Action("Index","Cart")"><i class="fa fa-shopping-cart fa-2x"></i><span>Shopping Cart</span></a></div>
                                 </di>
+                                @{
+        var session = (UserLogin)Session[CommonConstrants.USER_SESSION];
+                                }
+                                @if (session != null)
+    {
+                            <di class="item">
+                                <div class="wg-social"><i class="fa fa-address-book"></i><span>Welcome,@session.UserName</span></div>
+                            </di>
+                            <di class="item">
+                                <div class="wg-social"><a href="@Url.Action("Logout","Login")"><i class="fa fa-sign-out"></i><span>Logout</span></a></div>
+                            </di>
+}
+
                             </div>
                         </div>
                     </div>
@@ -101,7 +117,11 @@
                                     <li><a href="@Url.Action("Index","SearchPage")">Search</a></li>
                                     <li><a href="@Url.Action("Index","About")">About</a></li>
                                     <li><a href="@Url.Action("Index","Contact")">Contact</a></li>
+                                    @if (session ==null)
+	{
                                     <li><a href="@Url.Action("Index","Login")">Login</a></li>
+	}
+                                    
                                     @*<li><a class="current-menu-item" href="./">Home</a></li>
         <li><a href="ds-thuc-don.html">Thực đơn</a></li>
         <li><a href="mon-an-theo-mua.html">Món ăn theo mùa</a></li>

@@ -7,6 +7,7 @@ namespace WebApplication1.Common
 {
     public static class CommonConstrants
     {
+        public static string ADMIN_SESSION = "ADMIN_SESSION";
         public static string USER_SESSION = "USER_SESSION";
-     }
+    }
 }

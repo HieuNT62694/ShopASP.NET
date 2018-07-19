@@ -13,10 +13,10 @@ namespace WebApplication1.Areas.Admin.Controllers
         // GET: Admin/Base
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var sess = (UserLogin)Session[CommonConstrants.USER_SESSION];
+            var sess = (UserLogin)Session[CommonConstrants.ADMIN_SESSION];
             if (sess == null)
             {
-                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Login", action = "Index" }));
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Invalid", action = "Index" }));
             }
             base.OnActionExecuting(filterContext);
         }

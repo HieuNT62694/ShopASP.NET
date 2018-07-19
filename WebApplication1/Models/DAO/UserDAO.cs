@@ -29,7 +29,15 @@ namespace WebApplication1.Models.DAO
             {
                 if (model.password == newpasswrod)
                 {
-                    return 1;
+                    if (model.role == "admin")
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 3;
+                    }
+                    
                 }
                 else
                 {
@@ -40,6 +48,20 @@ namespace WebApplication1.Models.DAO
         public user GetUserById(string username)
         {
             return db.users.SingleOrDefault(x=>x.username == username);
+        }
+        public bool checkUserName(string username)
+        {
+            return db.users.Count(x => x.username == username) > 0;
+        }
+        public bool checkEmail(string Email)
+        {
+            return db.users.Count(x => x.email == Email) > 0;
+        }
+        public int Insert(user user)
+        {
+            db.users.Add(user);
+            db.SaveChanges();
+            return user.id;
         }
         public static string GetMD5(string str)
         {

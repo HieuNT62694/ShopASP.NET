@@ -32,8 +32,15 @@ namespace WebApplication1.Controllers
                     var usersession = new UserLogin();
                     usersession.UserName = user.username;
                     usersession.UserId = user.id;
-                    Session.Add(CommonConstrants.USER_SESSION, usersession);
+                    Session.Add(CommonConstrants.ADMIN_SESSION, usersession);
                     return RedirectToAction("Index", "Admin", new { area = "Admin" });
+                }else if(result == 3){
+                    var user = dao.GetUserById(model.UserName);
+                    var usersession = new UserLogin();
+                    usersession.UserName = user.username;
+                    usersession.UserId = user.id;
+                    Session.Add(CommonConstrants.USER_SESSION, usersession);
+                    return RedirectToAction("Index", "Home");
                 }
                 else if(result == 0)
                 {
@@ -51,6 +58,11 @@ namespace WebApplication1.Controllers
             return View("Index");
             
 
+        }
+        public ActionResult Logout()
+        {
+            Session[CommonConstrants.USER_SESSION] = null;
+            return Redirect("/");
         }
        
     }

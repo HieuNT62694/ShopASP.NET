@@ -1,8 +1,14 @@
-﻿
+﻿@using WebApplication1.Models;
+@model RegisterModel
+@using BotDetect.Web.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Layout/LayoutUser.cshtml";
 }
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+      rel="stylesheet" type="text/css" />
+
+@{ MvcCaptcha registerCaptcha = new MvcCaptcha("registerCaptcha"); }
 <link href="~/public/assets/vendors/style.css" rel="stylesheet" />
 <div data-bottom-top="background-position: 50% 50px;" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -50px;" class="page-title page-menu">
     <div class="container">
@@ -23,44 +29,72 @@
                 <div class="panel panel-default">
                     <h2>Sign up</h2>
                     <div class="panel-body">
-                        @using (Html.BeginForm("Index", "Signup",FormMethod.Post))
+                        @using (Html.BeginForm("Register", "Signup", FormMethod.Post))
     {
+        if (ViewBag.Success != null)
+        {
+                    <div class="alert alert-success">@ViewBag.Success</div>
+}
+                    @Html.ValidationSummary(false, "", new { @class = " text-danger" });
+
                     <div>
                         <label>Full name</label>
-                        <input type="text" class="form-control" placeholder="Username" name="name" aria-describedby="basic-addon1">
+
+
+                        @Html.TextBoxFor(model => model.Fullname, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "FullName" })
+                        @Html.ValidationMessageFor(model => model.Fullname, "", new { @class = "text-danger" })
                     </div>
                     <br>
                     <div>
                         <label>Username</label>
-                        <input type="email" class="form-control" placeholder="Email" name="Username" aria-describedby="basic-addon1">
+
+                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placeholder = "Username" })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                     </div>
                     <br />
                     <div>
                         <label>Email</label>
-                        <input type="email" class="form-control" placeholder="Email" name="email" aria-describedby="basic-addon1">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
                     <br />
                     <div>
                         <label>Address</label>
-                        <input type="email" class="form-control" placeholder="Email" name="Address" aria-describedby="basic-addon1">
+                        @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Address" })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                     </div>
                     <br>
                     <div>
                         <label>Phone</label>
-                        <input type="email" class="form-control" placeholder="Email" name="Address" aria-describedby="basic-addon1">
+                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @placeholder = "Phone" })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div>
+                        <label>Birth Date</label>
+                        @Html.TextBoxFor(model => model.BirthDate, new { @class = "form-control", @placeholder = "Birth Date" })
+                        @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
                     </div>
                     <br />
                     <div>
                         <label>Enter Password</label>
-                        <input type="password" class="form-control" name="password" aria-describedby="basic-addon1">
+                        @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                     </div>
                     <br>
                     <div>
                         <label>Re enter password</label>
-                        <input type="password" class="form-control" name="passwordAgain" aria-describedby="basic-addon1">
+
+                        @Html.PasswordFor(model => model.Cofirm, new { @class = "form-control", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(model => model.Cofirm, "", new { @class = "text-danger" })
                     </div>
                     <br>
-                    <button type="button" class="btn btn-success">
+                    <div>
+                        @Html.Captcha(registerCaptcha)
+                        @Html.TextBox("CaptchaCode")
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-success">
                         Submit
                     </button>
 }
