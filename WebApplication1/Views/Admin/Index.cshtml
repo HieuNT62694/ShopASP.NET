@@ -12,11 +12,9 @@
             <th>Tên</th>
             <th>Hình</th>
             <th>Summary</th>
-            <th>Detail</th>
             <th>Price</th>
             <th>Promotion Price</th>
             <th>Promotion</th>
-            <th>Update</th>
             <th>Unit</th>
             <th>Sửa | Xóa</th>
         </tr>
@@ -28,18 +26,14 @@
         <tr class="@item.id">
             <td>@item.name</td>
             <td><img src="~/assets/images/hinh_mon_an/@item.image" style="width: 100px"></td>
-            <td>@item.summary</td>
-            <td>@item.detail</td>
+            <td style="width : 200px;">@item.summary</td>
             <td>@item.price.ToString("N0")</td>
             <td>@item.promotion_price.ToString("N0")</td>
             <td>@item.promotion</td>
-            <td>@item.update_at</td>
-            Delete
             <td>@item.unit</td>
             <td>
                 <a href="@Url.Action("Edit","Create",new {@id = item.id })"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a> |
-                <a href="@Url.Action("Delete","Create",new {@id = item.id })"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a> |
-                
+                <a href="@Url.Action("Delete","Create",new {@id = item.id })"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>            
             </td>
         </tr>
             }

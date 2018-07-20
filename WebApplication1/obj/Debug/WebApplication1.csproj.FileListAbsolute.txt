@@ -588,7 +588,7 @@ C:\Users\HieuNTSE\Desktop\Project\ShopASP.NET\WebApplication1\bin\Microsoft.AI.D
 C:\Users\HieuNTSE\Desktop\Project\ShopASP.NET\WebApplication1\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\HieuNTSE\Desktop\Project\ShopASP.NET\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\HieuNTSE\Desktop\Project\ShopASP.NET\WebApplication1\bin\Microsoft.AI.Web.xml
-C:\Users\HieuNTSE\Desktop\Project\ShopASP.NET\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 C:\Users\HieuNTSE\Desktop\Project\ShopASP.NET\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 C:\Users\HieuNTSE\Desktop\Project\ShopASP.NET\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\HieuNTSE\Desktop\Project\ShopASP.NET\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\HieuNTSE\Desktop\Project\ShopASP.NET\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache

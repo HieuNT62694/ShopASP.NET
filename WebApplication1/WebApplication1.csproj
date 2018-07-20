@@ -488,6 +488,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BillController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CreateController.cs" />
@@ -514,6 +515,7 @@
     <Compile Include="Models\customer.cs">
       <DependentUpon>project.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BillCusModel.cs" />
     <Compile Include="Models\DAO\BillDAO.cs" />
     <Compile Include="Models\DAO\BillDetailDAO.cs" />
     <Compile Include="Models\DAO\CustomerDAO.cs" />
@@ -1879,6 +1881,7 @@
     <Content Include="Views\Invalid\Index.cshtml" />
     <Content Include="Views\Create\Index.cshtml" />
     <Content Include="Views\Create\Edit.cshtml" />
+    <Content Include="Views\Bill\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
