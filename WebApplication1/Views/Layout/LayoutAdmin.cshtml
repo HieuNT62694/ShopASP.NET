@@ -85,7 +85,6 @@
                         </a>
                         <ul class="sub">
                             <li><a href="@Url.Action("Index","Create")">Add Food</a></li>
-                            <li><a href="inbox_details.html">Edit Food</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -94,7 +93,6 @@
                         </a>
                         <ul class="sub">
                             <li><a href="@Url.Action("Index","Bill")">View</a></li>
-                            <li><a href="chartjs.html">Update</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -102,8 +100,17 @@
                             <span>Food Type</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="product_list.html">Add Food Type</a></li>
-                            <li><a href="product_details.html">Edit</a></li>
+                            <li><a href="@Url.Action("Index","AddType")" l">Add Food Type</a></li>
+                            <li><a href="@Url.Action("Edit","AddType")">Edit</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <span>Menu</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="@Url.Action("Index","AddMenu")" l">Add Menu</a></li>
+                            <li><a href="@Url.Action("Edit","AddMenu")">Edit</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -117,27 +124,27 @@
                     </li>
                     <!--multi level menu start-->
                     @*<li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-sitemap"></i>
-                                <span>Multi level Menu</span>
-                            </a>
+            <a href="javascript:;">
+                <i class="fa fa-sitemap"></i>
+                <span>Multi level Menu</span>
+            </a>
+            <ul class="sub">
+                <li><a href="javascript:;">Menu Item 1</a></li>
+                <li class="sub-menu">
+                    <a href="boxed_page.html">Menu Item 2</a>
+                    <ul class="sub">
+                        <li><a href="javascript:;">Menu Item 2.1</a></li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">Menu Item 3</a>
                             <ul class="sub">
-                                <li><a href="javascript:;">Menu Item 1</a></li>
-                                <li class="sub-menu">
-                                    <a href="boxed_page.html">Menu Item 2</a>
-                                    <ul class="sub">
-                                        <li><a href="javascript:;">Menu Item 2.1</a></li>
-                                        <li class="sub-menu">
-                                            <a href="javascript:;">Menu Item 3</a>
-                                            <ul class="sub">
-                                                <li><a href="javascript:;">Menu Item 3.1</a></li>
-                                                <li><a href="javascript:;">Menu Item 3.2</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <li><a href="javascript:;">Menu Item 3.1</a></li>
+                                <li><a href="javascript:;">Menu Item 3.2</a></li>
                             </ul>
-                        </li>*@
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>*@
                     <!--multi level menu end-->
                 </ul>
                 <!-- sidebar menu end-->

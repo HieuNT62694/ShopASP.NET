@@ -94,6 +94,19 @@ namespace WebApplication1.Models.DAO
                         };
             return model.SingleOrDefault().typeid;
         }
+        public List<food> getFoodInBill(int id)
+        {
+            var listfood = new List<food>();
+            var listidfood = db.bill_detail.Where(x => x.id_bill == id).ToList();
+            foreach (var item in listidfood)
+            {
+                var food = db.foods.SingleOrDefault(x => x.id == item.id_food);
+
+                listfood.Add(food);
+            }
+            
+            return listfood;
+        }
            
         }
         

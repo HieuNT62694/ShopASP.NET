@@ -15,7 +15,7 @@
             <th>Price</th>
             <th>Date Order</th>
             <th>Note</th>
-            <th>Sửa | Xóa|Chi tiết</th>
+            <th>Sửa | Xóa|</th>
         </tr>
     </thead>
     <tbody>
@@ -30,9 +30,9 @@
                 <td>@item.status</td>
 
                 <td>
-                    <a href=""><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a> |
-                    <a href=""><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>|
-                    <a href=""><i class="fa fa-external-link-square" aria-hidden="true" style="font-size:24px"></i></a>
+                    <a href="@Url.Action("Edit","Bill",new {@id = item.idbill })"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a> |
+                    <a href="@Url.Action("Delete","Bill",new {@id = item.idbill })"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                   
                 </td>
             </tr>
             }

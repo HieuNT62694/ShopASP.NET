@@ -26,6 +26,21 @@ namespace WebApplication1.Models.DAO
             
             return true;
         }
+
+        public bool Create(menu me)
+        {
+            try
+            {
+                db.menus.Add(me);
+                db.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
         public bool Update(menu_detail me,int id)
         {
             try
@@ -42,6 +57,24 @@ namespace WebApplication1.Models.DAO
                 return false;
             }
 
+            return true;
+        }
+        public bool UpdateMenu(menu entity)
+        {
+            try
+            {
+                var menu = db.menus.Find(entity.id);
+                menu.name = entity.name;
+                menu.image = entity.image;              
+                menu.price = entity.price;
+                menu.promotion_price = entity.promotion_price;
+                menu.detail = entity.detail;
+                db.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
             return true;
         }
     }

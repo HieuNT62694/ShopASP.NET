@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Edit Type";
+    Layout = "~/Views/Layout/LayoutAdmin.cshtml";
+}
+
+@using WebApplication1.Models;
+@model FoodTypeModel
+
+<div class="banner-bottom">
+    <div class="container">
+        <!-- news-and-events -->
+        <div class="row carousel-holder">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <h2>Create Type</h2>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("Edit", "AddType", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                        {
+                            @Html.ValidationSummary(false, "", new { @class = " text-danger" });
+                            @Html.HiddenFor(model=>model.id)
+                            <div>
+                                <label>Name</label>
+
+
+                                @Html.TextBoxFor(model => model.name, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "FullName" })
+                                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                            </div>
+                            <br />
+                            <div>
+                                <label>Description</label>
+                                @Html.TextBoxFor(model => model.description, new { @class = "form-control", @placeholder = "Summary" })
+                                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                            </div>
+                            <div>
+                                <label>Image</label>
+                                <input type="file" name="imageUpload" onchange="showMyImage(this)" accept="image/*" />
+                                @*<font style="color:red"> @ViewBag.message</font>*@
+                            </div>
+                            <div>
+                                <img style="width: 200px" id="thumbnil" src="~/assets/images/hinh_loai_mon_an/@Model.image" />
+                            </div>
+                            <br />
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- //news-and-events -->
+    </div>
+</div>
+<script>
+
+function showMyImage(fileInput) {
+    var files = fileInput.files;
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var imageType = /image.*/;
+        if (!file.type.match(imageType)) {
+            continue;
+        }
+        var img=document.getElementById("thumbnil");
+        img.file = file;
+        var reader = new FileReader();
+        reader.onload = (function(aImg) {
+            return function(e) {
+                aImg.src = e.target.result;
+            };
+        })(img);
+        reader.readAsDataURL(file);
+    }
+}
+
+</script>

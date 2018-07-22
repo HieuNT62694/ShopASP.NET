@@ -1,6 +1,7 @@
 ﻿@using WebApplication1.Models;
 @model List<MenuView>
 @{
+    ViewBag.Title = ("Menu");
     Layout = "~/Views/Layout/LayoutUser.cshtml";
     var Menu = Session["MENUSESSION"] as WebApplication1.Models.MenuView;
 }

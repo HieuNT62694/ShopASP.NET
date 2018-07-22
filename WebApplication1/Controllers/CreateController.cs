@@ -106,11 +106,9 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
                 if (imageUpload == null)
-                {
-                    ModelState.AddModelError("", "Nhập Hình Ảnh");
-                    ViewBag.Type = new SelectList(db.food_type.ToList(), "id", "name");
-                    ViewBag.Menu = new SelectList(db.menus.ToList(), "id", "name");
-                    return View("Index");
+                {                               
+                        var model = db.foods.SingleOrDefault(x => x.id == product.Id);
+                        product.Image = model.image;                   
                 }
                 else
                 {
@@ -169,7 +167,8 @@ namespace WebApplication1.Controllers
             var menu = db.menu_detail.Where(n => n.id_food == id).ToList();
             foreach(var item in menu)
             {
-                db.menu_detail.Remove(item);
+                menu_detail de = db.menu_detail.SingleOrDefault(n => n.id_menu == item.id_food);
+                db.menu_detail.Remove(de);
             }
             
             db.SaveChanges();

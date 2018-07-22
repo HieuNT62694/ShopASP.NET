@@ -1,0 +1,42 @@
+﻿@using WebApplication1.Models;
+@model PagedList.IPagedList<food_type>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "List Type";
+    Layout = "~/Views/Layout/LayoutAdmin.cshtml";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Hình</th>
+            <th>Summary</th>
+
+            <th>Sửa | Xóa</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr class="@item.id">
+                    <td>@item.name</td>
+                    <td><img src="~/assets/images/hinh_loai_mon_an/@item.image" style="width: 100px"></td>
+                    <td style="width : 200px;">@item.description</td>
+                    <td>
+                        <a href="@Url.Action("ViewDetail","AddType",new {@id = item.id })"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a> |
+                        <a href="@Url.Action("Delete","AddType",new {@id = item.id })"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            }
+
+
+
+        }
+    </tbody>
+</table>
+<ul class="pagination pagination-lg">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</ul>
+

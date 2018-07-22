@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Edit Menu";
+    Layout = "~/Views/Layout/LayoutAdmin.cshtml";
+}
+
+@using WebApplication1.Models;
+@model MenuModel
+
+<div class="banner-bottom">
+    <div class="container">
+        <!-- news-and-events -->
+        <div class="row carousel-holder">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <h2>Create Type</h2>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("Edit", "AddMenu", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+                    @Html.ValidationSummary(false, "", new { @class = " text-danger" });
+                    @Html.HiddenFor(model => model.id)
+                    <div>
+                        <label>Name</label>
+
+
+                        @Html.TextBoxFor(model => model.name, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Name" })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div>
+                        <label>Price</label>
+
+
+                        @Html.TextBoxFor(model => model.price, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Price" })
+                        @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div>
+                        <label>Promotion Price</label>
+
+
+                        @Html.TextBoxFor(model => model.proprice, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Promotion Price" })
+                        @Html.ValidationMessageFor(model => model.proprice, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <div>
+                        <label>Detail</label>
+                        @Html.TextBoxFor(model => model.detail, new { @class = "form-control", @placeholder = "Summary" })
+                        @Html.ValidationMessageFor(model => model.detail, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        <label>Image</label>
+                        <input type="file" name="imageUpload" onchange="showMyImage(this)" accept="image/*" />
+                        @*<font style="color:red"> @ViewBag.message</font>*@
+                    </div>
+                    <div>
+                        <img style="width: 200px" id="thumbnil" src="~/assets/images/thuc_don/@Model.image" />
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-success">
+                        Submit
+                    </button>
+}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- //news-and-events -->
+    </div>
+</div>
+<script>
+
+function showMyImage(fileInput) {
+    var files = fileInput.files;
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var imageType = /image.*/;
+        if (!file.type.match(imageType)) {
+            continue;
+        }
+        var img=document.getElementById("thumbnil");
+        img.file = file;
+        var reader = new FileReader();
+        reader.onload = (function(aImg) {
+            return function(e) {
+                aImg.src = e.target.result;
+            };
+        })(img);
+        reader.readAsDataURL(file);
+    }
+}
+
+</script>

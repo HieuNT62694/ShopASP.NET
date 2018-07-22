@@ -1,0 +1,68 @@
+﻿@using WebApplication1.Models;
+@model BillCusModel
+@{
+    ViewBag.Title = "Edit Bill";
+    Layout = "~/Views/Layout/LayoutAdmin.cshtml";
+}
+
+<div class="banner-bottom">
+    <div class="container">
+        <!-- news-and-events -->
+        <div class="row carousel-holder">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <h2>Create Food</h2>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("Edit", "Bill", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+                    @Html.ValidationSummary(false, "", new { @class = " text-danger" });
+                    @Html.HiddenFor(model => model.idbill)
+                            @Html.HiddenFor(model=>model.idcus)
+                            @Html.HiddenFor(model=>model.date)
+                    <div>
+                        <label>Name</label>
+
+                        @Html.TextBoxFor(model => model.namecus, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "FullName" })
+                        @Html.ValidationMessageFor(model => model.namecus, "", new { @class = "text-danger" })
+                    </div>
+                    <br>
+                    <div>
+                        <label>Price</label>
+                        @Html.TextBoxFor(model => model.price, new { @class = "form-control", @placeholder = "Price" })
+                        @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                    </div>
+                    <br>
+                    <div>
+                        <label>Address</label>
+                        @Html.TextBoxFor(model => model.address, new { @class = "form-control", @placeholder = "Summary" })
+                        @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        <label>Phone</label>
+                        @Html.TextBoxFor(model => model.phone, new { @class = "form-control", @placeholder = "Detail" })
+                        @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                    </div>
+                    <br>
+                    <div>
+                        <label>Status</label>
+                        @Html.TextBoxFor(model => model.status, new { @class = "form-control", @placeholder = "Detail" })
+                        @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-success">
+                        Submit
+                    </button>
+}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- //news-and-events -->
+    </div>
+</div>
+
