@@ -11,7 +11,7 @@
                 <div class="group-btn"><a href="@Url.Action("Index","FoodDetail",new {@id = @foodsintype.id ,@idtype = @foodsintype.id_type})" class="swin-btn btn-link"><i class="@Url.Action("AddItem","Cart",new { @id = @foodsintype.id,@quantity = 1 })"></i></a><a href="javascript:void(0)" class="swin-btn btn-add-to-card"><i class="fa fa-shopping-basket"></i></a></div>
             </div>
             <div class="block-content">
-                <h5 class="title"><a href="javascript:void(0)">@foodsintype.name</a></h5>
+                <h5 class="title"><a href="@Url.Action("Index","FoodDetail",new {@id = @foodsintype.id ,@idtype = @foodsintype.id_type})">@foodsintype.name</a></h5>
             </div>
         </div>
     }
